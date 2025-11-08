@@ -99,16 +99,23 @@
       align-items: center;
       justify-content: space-between;
       gap: .75rem;
-      flex-wrap: wrap;
       padding: .5rem 0;
+      margin-bottom: .35rem;
     }
     .nav nav {
       display: flex;
       align-items: center;
-      flex-wrap: wrap;
       gap: .5rem;
       justify-content: flex-end;
       margin-left: auto;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: .1rem;
+    }
+    .nav nav::-webkit-scrollbar {
+      display: none;
     }
     .nav nav .btn-secondary {
       margin-left: 0;
@@ -287,19 +294,6 @@
       background: rgba(20, 184, 166, 0.12);
       border-color: rgba(20, 184, 166, 0.5);
       margin-left: .75rem;
-    }
-    @media (max-width: 1180px) {
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1rem 0;
-      }
-      .nav nav {
-        width: 100%;
-        justify-content: flex-start;
-        margin-top: .5rem;
-        margin-left: 0;
-      }
     }
     @media (max-width: 880px) {
       .hero { grid-template-columns: 1fr; }
