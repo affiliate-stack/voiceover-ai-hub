@@ -98,10 +98,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 64px;
-      gap: .5rem;
+      gap: .75rem;
       flex-wrap: wrap;
-      padding: .75rem 0;
+      padding: .5rem 0;
     }
     .nav nav {
       display: flex;
@@ -109,6 +108,7 @@
       flex-wrap: wrap;
       gap: .5rem;
       justify-content: flex-end;
+      margin-left: auto;
     }
     .nav nav .btn-secondary {
       margin-left: 0;
@@ -288,7 +288,7 @@
       border-color: rgba(20, 184, 166, 0.5);
       margin-left: .75rem;
     }
-    @media (max-width: 880px) {
+    @media (max-width: 1180px) {
       .nav {
         flex-direction: column;
         align-items: flex-start;
@@ -298,7 +298,10 @@
         width: 100%;
         justify-content: flex-start;
         margin-top: .5rem;
+        margin-left: 0;
       }
+    }
+    @media (max-width: 880px) {
       .hero { grid-template-columns: 1fr; }
       .grid-3 { grid-template-columns: 1fr; }
     }
