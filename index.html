@@ -4,6 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied'
+    });
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5V3WHH6K6E"></script>
+  <script>
+    gtag('js', new Date());
+
+    gtag('config', 'G-5V3WHH6K6E');
+  </script>
+
   <title>ElevenLabs AI Voice Generator Guide | Voiceover AI Hub</title>
   <meta name="description" content="Voiceover AI Hub’s independent ElevenLabs AI voice generator guide covers text-to-speech features, pricing tips, and simple workflows for teachers, creators, and small businesses." />
   <meta name="robots" content="index,follow" />
@@ -297,6 +313,38 @@
     .keywords-card {
       display: none;
     }
+    .consent-banner {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      left: 1rem;
+      max-width: 420px;
+      margin: 0 auto;
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      border-radius: 1rem;
+      padding: 1rem 1.2rem;
+      color: #e2e8f0;
+      font-size: .85rem;
+      line-height: 1.4;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+      z-index: 100;
+    }
+    .consent-actions {
+      margin-top: .85rem;
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+    }
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: #e2e8f0;
+      border-radius: 9999px;
+      padding: .45rem 1.05rem;
+      font-size: .8rem;
+      cursor: pointer;
+    }
     @media (min-width: 960px) {
       .nav {
         flex-direction: row;
@@ -323,6 +371,10 @@
     @media (max-width: 540px) {
       .container {
         padding: 0 1.25rem;
+      }
+      .consent-banner {
+        left: .75rem;
+        right: .75rem;
       }
     }
   </style>
@@ -504,5 +556,50 @@
       Voiceover AI Hub · Page referencing ElevenLabs.
     </div>
   </footer>
+  <div class="consent-banner" id="consent-banner" hidden>
+    <strong>Cookies & analytics</strong>
+    <p style="margin:.35rem 0 0 0;font-size:.78rem;">
+      We use Google Analytics to understand traffic. Do you consent to storing cookies for measurement purposes?
+    </p>
+    <div class="consent-actions">
+      <button class="btn-primary" id="consent-accept">Accept</button>
+      <button class="btn-ghost" id="consent-reject">Reject</button>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const banner = document.getElementById('consent-banner');
+      const acceptBtn = document.getElementById('consent-accept');
+      const rejectBtn = document.getElementById('consent-reject');
+      const CONSENT_KEY = 'voaih-consent';
+
+      function setConsent(status) {
+        localStorage.setItem(CONSENT_KEY, status);
+        const granted = status === 'granted';
+        gtag('consent', 'update', {
+          ad_storage: granted ? 'granted' : 'denied',
+          analytics_storage: granted ? 'granted' : 'denied'
+        });
+        if (granted) {
+          gtag('event', 'consent_accepted');
+        }
+        banner.hidden = true;
+      }
+
+      const stored = localStorage.getItem(CONSENT_KEY);
+      if (!stored) {
+        banner.hidden = false;
+      } else {
+        setConsent(stored);
+      }
+
+      acceptBtn.addEventListener('click', function () {
+        setConsent('granted');
+      });
+      rejectBtn.addEventListener('click', function () {
+        setConsent('denied');
+      });
+    })();
+  </script>
 </body>
 </html>
