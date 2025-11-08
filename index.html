@@ -97,19 +97,19 @@
     .nav {
       display: flex;
       flex-direction: column;
-      gap: .6rem;
+      gap: .55rem;
       padding: .65rem 0;
       margin-bottom: .35rem;
     }
-    .nav-top {
+    .logo-row {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
     }
-    .nav-top .logo {
-      flex-shrink: 0;
+    .nav-inner {
+      display: flex;
+      flex-direction: column;
+      gap: .45rem;
+      width: 100%;
     }
     .nav-links {
       width: 100%;
@@ -117,6 +117,10 @@
       flex-wrap: wrap;
       gap: .45rem;
       justify-content: flex-start;
+    }
+    .lang-row {
+      display: flex;
+      gap: .45rem;
     }
     .lang-switch {
       font-size: 0.75rem;
@@ -299,9 +303,16 @@
         align-items: center;
         justify-content: space-between;
       }
+      .nav-inner {
+        flex-direction: row;
+        align-items: center;
+        gap: .65rem;
+      }
       .nav-links {
         width: auto;
-        justify-content: flex-end;
+        justify-content: flex-start;
+      }
+      .lang-row {
         margin-left: auto;
       }
     }
@@ -320,19 +331,23 @@
   <header>
     <div class="container">
       <div class="nav">
-        <div class="nav-top">
+        <div class="logo-row">
           <div class="logo">
             <span class="logo-badge" aria-hidden="true"></span>
             Voiceover AI Hub
           </div>
-          <a href="/ko/" class="btn-secondary lang-switch" hreflang="ko">한국어</a>
         </div>
-        <nav class="nav-links">
-          <a href="#overview" class="btn-secondary">Overview</a>
-          <a href="#use-cases" class="btn-secondary">Use cases</a>
-          <a href="#faq" class="btn-secondary">FAQ</a>
-          <a href="#disclosure" class="btn-secondary">Disclosure</a>
-        </nav>
+        <div class="nav-inner">
+          <nav class="nav-links">
+            <a href="#overview" class="btn-secondary">Overview</a>
+            <a href="#use-cases" class="btn-secondary">Use cases</a>
+            <a href="#faq" class="btn-secondary">FAQ</a>
+            <a href="#disclosure" class="btn-secondary">Disclosure</a>
+          </nav>
+          <div class="lang-row">
+            <a href="/ko/" class="btn-secondary lang-switch" hreflang="ko">한국어</a>
+          </div>
+        </div>
       </div>
     </div>
   </header>
