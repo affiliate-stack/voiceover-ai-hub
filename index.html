@@ -97,19 +97,31 @@
     .nav {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      gap: .65rem;
+      gap: .6rem;
       padding: .65rem 0;
       margin-bottom: .35rem;
     }
-    .nav nav {
+    .nav-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .nav-top .logo {
+      flex-shrink: 0;
+    }
+    .nav-links {
       width: 100%;
       display: flex;
       flex-wrap: wrap;
       gap: .45rem;
       justify-content: flex-start;
     }
-    .nav nav .btn-secondary {
+    .lang-switch {
+      font-size: 0.75rem;
+      background: rgba(20, 184, 166, 0.12);
+      border-color: rgba(20, 184, 166, 0.5);
       margin-left: 0;
     }
     .logo {
@@ -281,19 +293,13 @@
     .keywords-card {
       display: none;
     }
-    .lang-switch {
-      font-size: 0.75rem;
-      background: rgba(20, 184, 166, 0.12);
-      border-color: rgba(20, 184, 166, 0.5);
-      margin-left: .75rem;
-    }
     @media (min-width: 960px) {
       .nav {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
       }
-      .nav nav {
+      .nav-links {
         width: auto;
         justify-content: flex-end;
         margin-left: auto;
@@ -314,16 +320,18 @@
   <header>
     <div class="container">
       <div class="nav">
-        <div class="logo">
-          <span class="logo-badge" aria-hidden="true"></span>
-          Voiceover AI Hub
+        <div class="nav-top">
+          <div class="logo">
+            <span class="logo-badge" aria-hidden="true"></span>
+            Voiceover AI Hub
+          </div>
+          <a href="/ko/" class="btn-secondary lang-switch" hreflang="ko">한국어</a>
         </div>
-        <nav>
+        <nav class="nav-links">
           <a href="#overview" class="btn-secondary">Overview</a>
           <a href="#use-cases" class="btn-secondary">Use cases</a>
           <a href="#faq" class="btn-secondary">FAQ</a>
           <a href="#disclosure" class="btn-secondary">Disclosure</a>
-          <a href="/ko/" class="btn-secondary lang-switch" hreflang="ko">한국어</a>
         </nav>
       </div>
     </div>
