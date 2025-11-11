@@ -121,9 +121,14 @@
       margin: 0 auto;
       padding: 0 clamp(1.5rem, 6vw, 3.5rem);
     }
-    @media (orientation: portrait) and (min-width: 768px) {
+    @media (orientation: portrait) and (min-width: 640px) {
       .container {
-        padding-inline: clamp(2.5rem, 9vw, 5rem);
+        max-width: 960px;
+        padding-inline: clamp(2.75rem, 10vw, 5.5rem);
+      }
+      .hero,
+      .grid-3 {
+        grid-template-columns: 1fr;
       }
     }
     .nav {
