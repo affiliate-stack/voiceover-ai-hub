@@ -11,22 +11,6 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
   <link rel="manifest" href="/site.webmanifest" />
   <meta name="theme-color" content="#0f172a" />
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('consent', 'default', {
-      ad_storage: 'denied',
-      analytics_storage: 'denied'
-    });
-  </script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5V3WHH6K6E"></script>
-  <script>
-    gtag('js', new Date());
-
-    gtag('config', 'G-5V3WHH6K6E');
-  </script>
-
   <title>ElevenLabs AI Voice Generator Guide | Voiceover AI Hub</title>
   <meta name="description" content="Voiceover AI Hub’s independent ElevenLabs AI voice generator guide covers text-to-speech features, pricing tips, and simple workflows for teachers, creators, and small businesses." />
   <meta name="robots" content="index,follow" />
@@ -241,6 +225,15 @@
       text-decoration: none;
       margin-left: .5rem;
     }
+    .btn-outline {
+      background: rgba(15, 23, 42, 0.25);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      color: #e2e8f0;
+      border-radius: 9999px;
+      padding: .45rem 1rem;
+      font-size: .78rem;
+      cursor: pointer;
+    }
     .hero-card {
       background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, rgba(2, 6, 23, 0.0) 65%), #020617;
       border: 1px solid rgba(148, 163, 184, 0.085);
@@ -361,11 +354,34 @@
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
       z-index: 100;
     }
+    .consent-copy {
+      margin-top: .35rem;
+      font-size: .78rem;
+      color: rgba(226, 232, 240, 0.95);
+    }
+    .consent-toggle {
+      margin-top: .85rem;
+      display: flex;
+      gap: .45rem;
+      align-items: flex-start;
+      font-size: .78rem;
+    }
+    .consent-toggle input {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--primary);
+      margin-top: .15rem;
+    }
     .consent-actions {
       margin-top: .85rem;
       display: flex;
       gap: .5rem;
       flex-wrap: wrap;
+    }
+    .consent-note {
+      margin-top: .45rem;
+      font-size: .72rem;
+      color: rgba(226, 232, 240, 0.75);
     }
     .btn-ghost {
       background: transparent;
@@ -375,6 +391,38 @@
       padding: .45rem 1.05rem;
       font-size: .8rem;
       cursor: pointer;
+    }
+    .cookie-settings-link {
+      background: none;
+      border: none;
+      color: var(--primary);
+      font-size: .8rem;
+      cursor: pointer;
+      padding: 0;
+    }
+    .cookie-settings-link:hover,
+    .cookie-settings-link:focus {
+      text-decoration: underline;
+    }
+    footer .footer-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: .65rem;
+      flex-wrap: wrap;
+    }
+    footer .footer-links {
+      display: inline-flex;
+      gap: .75rem;
+      align-items: center;
+      font-size: .78rem;
+    }
+    footer .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+    footer .footer-links a:hover {
+      text-decoration: underline;
     }
     @media (min-width: 960px) {
       .nav {
@@ -583,54 +631,31 @@
   </main>
 
   <footer>
-    <div class="container">
-      Voiceover AI Hub · Page referencing ElevenLabs.
+    <div class="container footer-bar">
+      <span>Voiceover AI Hub · Page referencing ElevenLabs.</span>
+      <span class="footer-links">
+        <a href="/privacy.html">Privacy & cookies</a>
+        <button type="button" class="cookie-settings-link" data-consent-open>Cookie settings</button>
+      </span>
     </div>
   </footer>
-  <div class="consent-banner" id="consent-banner" hidden>
-    <strong>Cookies & analytics</strong>
-    <p style="margin:.35rem 0 0 0;font-size:.78rem;">
-      We use Google Analytics to understand traffic. Do you consent to storing cookies for measurement purposes?
+  <div class="consent-banner" data-consent-banner hidden aria-hidden="true">
+    <strong>Privacy choices</strong>
+    <p class="consent-copy">
+      We use Google Analytics 4 to measure visits. Analytics cookies only load if you allow them. Read the
+      <a href="/privacy.html">Privacy & Cookies Policy</a> for the full details.
     </p>
+    <label class="consent-toggle">
+      <input type="checkbox" data-consent-toggle />
+      <span>Analytics (GA4) — helps us learn what tutorials people read.</span>
+    </label>
+    <p class="consent-note">You can change or withdraw consent anytime via “Cookie settings.”</p>
     <div class="consent-actions">
-      <button class="btn-primary" id="consent-accept">Accept</button>
-      <button class="btn-ghost" id="consent-reject">Reject</button>
+      <button class="btn-primary" type="button" data-consent-accept>Allow analytics</button>
+      <button class="btn-ghost" type="button" data-consent-reject>Reject all</button>
+      <button class="btn-outline" type="button" data-consent-save>Save choices</button>
     </div>
   </div>
-  <script>
-    (function () {
-      const banner = document.getElementById('consent-banner');
-      const acceptBtn = document.getElementById('consent-accept');
-      const rejectBtn = document.getElementById('consent-reject');
-      const CONSENT_KEY = 'voaih-consent';
-
-      function setConsent(status) {
-        localStorage.setItem(CONSENT_KEY, status);
-        const granted = status === 'granted';
-        gtag('consent', 'update', {
-          ad_storage: granted ? 'granted' : 'denied',
-          analytics_storage: granted ? 'granted' : 'denied'
-        });
-        if (granted) {
-          gtag('event', 'consent_accepted');
-        }
-        banner.hidden = true;
-      }
-
-      const stored = localStorage.getItem(CONSENT_KEY);
-      if (!stored) {
-        banner.hidden = false;
-      } else {
-        setConsent(stored);
-      }
-
-      acceptBtn.addEventListener('click', function () {
-        setConsent('granted');
-      });
-      rejectBtn.addEventListener('click', function () {
-        setConsent('denied');
-      });
-    })();
-  </script>
+  <script defer src="/consent.js"></script>
 </body>
 </html>
