@@ -1,18 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>Voice-over Script Length Calculator</title>
+  <title>보이스오버 스크립트 길이 계산기 | Voiceover AI Hub</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Paste your voice-over script, pick language and speaking pace, and instantly see word counts, estimated read time, ad-slot fit, and safety buffer. 100% browser-based.">
+  <meta name="description" content="보이스오버 스크립트를 붙여넣고 언어와 발화 속도를 선택하면 단어 수, 예상 시간, 광고 슬롯 적합도, 안전 버퍼를 즉시 계산합니다. 모든 계산은 브라우저에서 처리됩니다. 무료 온라인 계산기.">
   <meta name="robots" content="index,follow">
-  <link rel="canonical" href="https://voiceoveraihub.com/tools/script_length/script_lenght.html" />
-  <link rel="alternate" hreflang="en" href="https://voiceoveraihub.com/tools/script_length/script_lenght.html" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/x-icon" sizes="any" href="/favicon.ico" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicons/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="canonical" href="https://voiceoveraihub.com/ko/tools/script_length/script_lenght.html" />
   <link rel="alternate" hreflang="ko" href="https://voiceoveraihub.com/ko/tools/script_length/script_lenght.html" />
-  <meta property="og:title" content="Voice-over Script Length Calculator | Voiceover AI Hub" />
-  <meta property="og:description" content="Paste your script and get instant word counts, duration, ad-slot fit, and safety buffer. All calculations stay in your browser." />
+  <link rel="alternate" hreflang="en" href="https://voiceoveraihub.com/tools/script_length/script_lenght.html" />
+  <meta property="og:title" content="보이스오버 스크립트 길이 계산기 | Voiceover AI Hub" />
+  <meta property="og:description" content="스크립트를 붙여넣고 언어와 발화 속도를 선택해 단어 수, 예상 시간, 광고 슬롯 적합도를 바로 계산하세요. 모든 계산은 브라우저에서 처리됩니다." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://voiceoveraihub.com/tools/script_length/script_lenght.html" />
+  <meta property="og:url" content="https://voiceoveraihub.com/ko/tools/script_length/script_lenght.html" />
 
   <style>
     :root {
@@ -588,107 +597,6 @@
       }
     }
 
-    .consent-banner {
-      position: fixed;
-      bottom: 1rem;
-      right: 1rem;
-      left: 1rem;
-      max-width: 420px;
-      margin: 0 auto;
-      background: rgba(15, 23, 42, 0.92);
-      border: 1px solid rgba(148, 163, 184, 0.2);
-      border-radius: 1rem;
-      padding: 1rem 1.2rem;
-      color: #e2e8f0;
-      font-size: 0.85rem;
-      line-height: 1.4;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
-      z-index: 100;
-    }
-
-    .consent-copy {
-      margin-top: 0.35rem;
-      font-size: 0.78rem;
-      color: rgba(226, 232, 240, 0.95);
-    }
-
-    .consent-toggle {
-      margin-top: 0.85rem;
-      display: flex;
-      gap: 0.45rem;
-      align-items: flex-start;
-      font-size: 0.78rem;
-    }
-
-    .consent-toggle input {
-      width: 18px;
-      height: 18px;
-      accent-color: var(--accent);
-      margin-top: 0.15rem;
-    }
-
-    .consent-note {
-      margin-top: 0.45rem;
-      font-size: 0.72rem;
-      color: rgba(226, 232, 240, 0.75);
-    }
-
-    .consent-actions {
-      margin-top: 0.85rem;
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      background: linear-gradient(120deg, #6366f1 0%, #14b8a6 80%);
-      color: #fff;
-      border: none;
-      border-radius: 9999px;
-      padding: 0.6rem 1.35rem;
-      font-weight: 600;
-      display: inline-flex;
-      gap: 0.5rem;
-      align-items: center;
-      cursor: pointer;
-      text-decoration: none;
-      font-size: 0.85rem;
-    }
-
-    .btn-outline {
-      background: rgba(15, 23, 42, 0.25);
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      color: #e2e8f0;
-      border-radius: 9999px;
-      padding: 0.5rem 1.1rem;
-      font-size: 0.82rem;
-      cursor: pointer;
-    }
-
-    .btn-ghost {
-      background: transparent;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      color: #e2e8f0;
-      border-radius: 9999px;
-      padding: 0.5rem 1.1rem;
-      font-size: 0.82rem;
-      cursor: pointer;
-    }
-
-    .cookie-settings-link {
-      background: none;
-      border: none;
-      color: var(--accent);
-      font-size: 0.8rem;
-      cursor: pointer;
-      padding: 0;
-    }
-
-    .cookie-settings-link:hover,
-    .cookie-settings-link:focus {
-      text-decoration: underline;
-    }
-
     .stat {
       padding: 9px 10px;
       border-radius: var(--radius-sm);
@@ -823,22 +731,123 @@
     .helper-note {
       color: var(--muted);
     }
+
+    .consent-banner {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      left: 1rem;
+      max-width: 420px;
+      margin: 0 auto;
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      border-radius: 1rem;
+      padding: 1rem 1.2rem;
+      color: #e2e8f0;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+      z-index: 100;
+    }
+
+    .consent-copy {
+      margin-top: 0.35rem;
+      font-size: 0.78rem;
+      color: rgba(226, 232, 240, 0.95);
+    }
+
+    .consent-toggle {
+      margin-top: 0.85rem;
+      display: flex;
+      gap: 0.45rem;
+      align-items: flex-start;
+      font-size: 0.78rem;
+    }
+
+    .consent-toggle input {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--accent);
+      margin-top: 0.15rem;
+    }
+
+    .consent-note {
+      margin-top: 0.45rem;
+      font-size: 0.72rem;
+      color: rgba(226, 232, 240, 0.75);
+    }
+
+    .consent-actions {
+      margin-top: 0.85rem;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(120deg, #6366f1 0%, #14b8a6 80%);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 0.6rem 1.35rem;
+      font-weight: 600;
+      display: inline-flex;
+      gap: 0.5rem;
+      align-items: center;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+
+    .btn-outline {
+      background: rgba(15, 23, 42, 0.25);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      color: #e2e8f0;
+      border-radius: 999px;
+      padding: 0.5rem 1.1rem;
+      font-size: 0.82rem;
+      cursor: pointer;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: #e2e8f0;
+      border-radius: 999px;
+      padding: 0.5rem 1.1rem;
+      font-size: 0.82rem;
+      cursor: pointer;
+    }
+
+    .cookie-settings-link {
+      background: none;
+      border: none;
+      color: var(--accent);
+      font-size: 0.8rem;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .cookie-settings-link:hover,
+    .cookie-settings-link:focus {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
 <header class="site-header">
   <div class="page-shell">
     <div class="site-bar">
-      <a href="/" class="brand" aria-label="Voiceover AI Hub home">
-        <img src="/favicons/favicon.jpg" alt="Voiceover AI Hub logo" />
+      <a href="/ko/" class="brand" aria-label="Voiceover AI Hub">
+        <img src="/favicons/favicon.jpg" alt="Voiceover AI Hub 로고" />
         <span>Voiceover AI Hub</span>
       </a>
       <nav class="site-nav">
-        <a href="/">Home</a>
-        <a href="#calculator">Calculator</a>
-        <a href="/privacy.html">Privacy</a>
+        <a href="/ko/">홈</a>
+        <a href="#calculator">계산기</a>
+        <a href="/privacy.html">프라이버시</a>
       </nav>
-      <a class="lang-link" href="/ko/tools/script_length/script_lenght.html" hreflang="ko">한국어</a>
+      <a class="lang-link" href="/tools/script_length/script_lenght.html" hreflang="en">English</a>
     </div>
   </div>
 </header>
@@ -847,15 +856,15 @@
   <div class="page-shell">
     <section class="tool-hero">
       <div>
-        <span class="pill">Tool · Script timing</span>
-        <h1>Voice-over Script Length Calculator</h1>
+        <span class="pill">도구 · 스크립트 타이밍</span>
+        <h1>보이스오버 스크립트 길이 계산기</h1>
         <p>
-          Paste your voice-over script, pick language and speaking pace, and get instant estimates for word count, duration, and ad-slot fit with a safety buffer. All calculations stay on your device.
+          스크립트를 붙여넣고 언어와 발화 속도를 선택하면 단어 수와 문자 수, 예상 시간, 광고 슬롯 적합도와 안전 버퍼를 즉시 확인할 수 있습니다. 모든 계산은 브라우저에서 처리됩니다.
         </p>
         <div class="hero-actions">
-          <a class="hero-btn primary" href="#calculator">Jump to calculator</a>
-          <a class="hero-btn secondary" href="/">Back to main guide</a>
-          <a class="hero-btn secondary" href="https://try.elevenlabs.io/5cfx02tsbxm9" target="_blank" rel="noopener noreferrer">Try ElevenLabs</a>
+          <a class="hero-btn primary" href="#calculator">계산기로 이동</a>
+          <a class="hero-btn secondary" href="/ko/">메인 가이드로 돌아가기</a>
+          <a class="hero-btn secondary" href="https://try.elevenlabs.io/5cfx02tsbxm9" target="_blank" rel="noopener noreferrer">ElevenLabs 체험하기</a>
         </div>
       </div>
     </section>
@@ -870,17 +879,17 @@
             <div class="title-group">
               <div class="title">
                 <span class="logo-dot"></span>
-                Script Length Calculator
+                스크립트 길이 계산기
               </div>
               <div class="subtitle">
-                Counts words and estimates reading time for spoken voice-over.
+                음성 녹음용 단어 수와 예상 시간을 계산합니다.
               </div>
             </div>
             <div class="chip-row">
               <span class="chip-dot"></span>
-              Live estimates
+              실시간 계산
               <span>·</span>
-              Client-side only
+              브라우저에서 처리
             </div>
           </header>
 
@@ -888,32 +897,32 @@
             <div class="card-inner">
               <div class="card-header">
                 <div>
-                  <div class="card-title">Script input</div>
-                  <div class="card-caption">Paste or type your script below.</div>
+                  <div class="card-title">스크립트 입력</div>
+                  <div class="card-caption">여기에 스크립트를 붙여넣거나 입력하세요.</div>
                 </div>
                 <div class="badge">
                   <span class="badge-dot"></span>
-                  No data leaves the browser
+                  데이터 전송 없음
                 </div>
               </div>
 
               <div class="field-group">
                 <div class="field">
-                  <label for="language" class="label">Language</label>
+                  <label for="language" class="label">언어</label>
                   <select id="language" aria-describedby="languageHint">
-                    <option value="en">English</option>
-                    <option value="fr">French</option>
-                    <option value="es">Spanish</option>
-                    <option value="de">German</option>
-                    <option value="other">Other / mixed</option>
+                    <option value="en">영어</option>
+                    <option value="fr">프랑스어</option>
+                    <option value="es">스페인어</option>
+                    <option value="de">독일어</option>
+                    <option value="other">기타 / 혼합</option>
                   </select>
                 </div>
                 <div class="field">
-                  <label for="pace" class="label">Speaking pace</label>
+                  <label for="pace" class="label">발화 속도</label>
                   <select id="pace" aria-describedby="paceHint">
-                    <option value="slow">Slow</option>
-                    <option value="normal" selected>Normal</option>
-                    <option value="fast">Fast</option>
+                    <option value="slow">느림</option>
+                    <option value="normal" selected>보통</option>
+                    <option value="fast">빠름</option>
                   </select>
                 </div>
               </div>
@@ -921,30 +930,30 @@
               <div class="field-group">
                 <label class="toggle" for="countNumbers">
                   <input type="checkbox" id="countNumbers" checked>
-                  <span>Count numbers as words</span>
+                  <span>숫자를 단어 수에 포함</span>
                 </label>
               </div>
 
               <textarea id="scriptInput"
                         aria-describedby="inputHint limitHint"
-                        placeholder="Paste your script here..."></textarea>
+                        placeholder="여기에 스크립트를 붙여넣으세요..."></textarea>
 
               <div class="helper-row">
-                <span class="helper-note" id="inputHint">Updates automatically while you type.</span>
+                <span class="helper-note" id="inputHint">입력하면 자동으로 계산됩니다.</span>
                 <div class="helper-actions">
-                  <button type="button" id="sampleButton">Sample script</button>
-                  <button type="button" id="clearButton">Clear</button>
+                  <button type="button" id="sampleButton">샘플 스크립트</button>
+                  <button type="button" id="clearButton">지우기</button>
                 </div>
               </div>
               <div class="helper-row">
                 <span class="helper-note" id="limitHint">
-                  Max 12,000 characters. Extra whitespace is trimmed on paste.
+                  최대 12,000자. 붙여넣을 때 불필요한 공백을 정리합니다.
                 </span>
-                <span class="alert-inline" id="limitAlert" style="display:none;">Trimmed to the limit.</span>
+                <span class="alert-inline" id="limitAlert" style="display:none;">최대 길이로 잘랐습니다.</span>
               </div>
 
-              <div class="sr-only" id="languageHint">Language changes the fixed words per minute rate.</div>
-              <div class="sr-only" id="paceHint">Select a speaking pace to adjust estimated read time.</div>
+              <div class="sr-only" id="languageHint">언어별 고정 WPM(분당 단어 수)을 적용합니다.</div>
+              <div class="sr-only" id="paceHint">발화 속도를 선택해 예상 시간을 조정합니다.</div>
             </div>
           </div>
         </section>
@@ -955,14 +964,14 @@
             <div class="card-inner">
               <div class="card-header">
                 <div>
-                  <div class="card-title">Timing result</div>
+                  <div class="card-title">타이밍 결과</div>
                   <div class="card-caption">
-                    Based on current script, language, and pace settings.
+                    선택한 언어와 속도를 기준으로 계산됩니다.
                   </div>
                 </div>
                 <button type="button" class="chip-button" id="copyButton">
-                  Copy stats
-                  <span class="alert-inline" id="copyFeedback" style="display:none;">Copied</span>
+                  통계 복사
+                  <span class="alert-inline" id="copyFeedback" style="display:none;">복사됨</span>
                 </button>
               </div>
 
@@ -970,62 +979,60 @@
 
               <div class="stats-grid">
                 <div class="stat">
-                  <div class="stat-label">Word count</div>
+                  <div class="stat-label">단어 수</div>
                   <div class="stat-value" id="wordCount">0</div>
-                  <div class="stat-hint" id="charCount">0 characters</div>
+                  <div class="stat-hint" id="charCount">0자</div>
                 </div>
                 <div class="stat">
-                  <div class="stat-label">Estimated duration</div>
-                  <div class="stat-value accent" id="duration">0 s</div>
-                  <div class="stat-hint" id="durationDetail">0:00 (min:sec)</div>
+                  <div class="stat-label">예상 시간</div>
+                  <div class="stat-value accent" id="duration">0초</div>
+                  <div class="stat-hint" id="durationDetail">0:00 (분:초)</div>
                 </div>
               </div>
 
               <div class="stat">
-                <div class="stat-label">Words per minute used</div>
+                <div class="stat-label">적용 WPM</div>
                 <div class="stat-value" id="wpmValue">0</div>
                 <div class="stat-hint">
-                  Fixed WPM values are used for each language and pace setting.
+                  언어와 속도별로 고정된 분당 단어 수(WPM)을 사용합니다.
                 </div>
               </div>
 
               <div class="slot-panel">
-                <div class="slot-title">Ad slot guide</div>
+                <div class="slot-title">광고 슬롯 가이드</div>
                 <div class="slot-row">
                   <div class="slot" data-seconds="15">
-                    15 s
+                    15초
                     <span class="tag"></span>
                   </div>
                   <div class="slot" data-seconds="30">
-                    30 s
+                    30초
                     <span class="tag"></span>
                   </div>
                   <div class="slot" data-seconds="45">
-                    45 s
+                    45초
                     <span class="tag"></span>
                   </div>
                   <div class="slot" data-seconds="60">
-                    60 s
+                    60초
                     <span class="tag"></span>
                   </div>
                   <div class="slot" data-seconds="90">
-                    90 s
+                    90초
                     <span class="tag"></span>
                   </div>
                 </div>
               </div>
 
               <p class="buffer-hint" id="bufferMessage">
-                Safety buffer applied when available.
+                안전 버퍼 적용 시 적합 슬롯을 표시합니다.
               </p>
 
               <p class="note">
-                <strong>Note:</strong> This calculator uses fixed words-per-minute values
-                per language and pace. It is a mechanical estimate of read time.
+                <strong>참고:</strong> 이 계산기는 언어·속도별 고정 WPM으로 기계적으로 추정한 시간입니다.
               </p>
               <p class="alert" id="longAlert" style="display:none;">
-                Estimated duration is longer than 90 seconds; it may not fit
-                in standard 15–90 second ad slots.
+                예상 시간이 90초를 초과합니다. 15–90초 슬롯에 맞지 않을 수 있습니다.
               </p>
             </div>
           </div>
@@ -1037,35 +1044,34 @@
 
 <footer class="site-footer">
   <div class="page-shell footer-bar">
-    <span>Voiceover AI Hub · Tools.</span>
+    <span>Voiceover AI Hub · 도구.</span>
     <span class="footer-links">
-      <a href="/privacy.html">Privacy & cookies</a>
-      <button type="button" class="cookie-settings-link" data-consent-open>Cookie settings</button>
+      <a href="/privacy.html">프라이버시 & 쿠키</a>
+      <button type="button" class="cookie-settings-link" data-consent-open>쿠키 설정</button>
     </span>
   </div>
 </footer>
 
 <div class="consent-banner" data-consent-banner hidden aria-hidden="true">
-  <strong>Privacy choices</strong>
+<strong>개인정보 설정</strong>
   <p class="consent-copy">
-    We use Google Analytics 4 to measure visits. Analytics cookies only load if you allow them. Read the
-    <a href="/privacy.html">Privacy & Cookies Policy</a> for the full details.
+방문자 수를 파악하기 위해 Google Analytics 4를 사용할 수 있습니다. 동의한 경우에만 로드됩니다. 자세한 내용은
+    <a href="/privacy.html">프라이버시 & 쿠키 정책</a>을 확인하세요.
   </p>
   <label class="consent-toggle">
     <input type="checkbox" data-consent-toggle />
-    <span>Analytics (GA4) — helps us learn what tutorials people read.</span>
+    <span>애널리틱스(GA4) — 어떤 튜토리얼이 얼마나 읽히는지 확인합니다.</span>
   </label>
-  <p class="consent-note">You can change or withdraw consent anytime via “Cookie settings.”</p>
+  <p class="consent-note">“쿠키 설정”을 통해 언제든 동의를 변경하거나 철회할 수 있습니다.</p>
   <div class="consent-actions">
-    <button class="btn-primary" type="button" data-consent-accept>Allow analytics</button>
-    <button class="btn-ghost" type="button" data-consent-reject>Reject all</button>
-    <button class="btn-outline" type="button" data-consent-save>Save choices</button>
+    <button class="btn-primary" type="button" data-consent-accept>애널리틱스 허용</button>
+    <button class="btn-ghost" type="button" data-consent-reject>모두 거부</button>
+    <button class="btn-outline" type="button" data-consent-save>선택 저장</button>
   </div>
 </div>
 <script defer src="/consent.js"></script>
 <script>
-  // Words-per-minute settings used by the calculator.
-  // These constants are only used for internal calculation.
+  // WPM 설정 (언어·속도별 고정 분당 단어 수)
   const WPM_TABLE = {
     en: { slow: 120, normal: 150, fast: 180 },
     fr: { slow: 130, normal: 160, fast: 190 },
@@ -1077,8 +1083,8 @@
   const MAX_CHARS = 12000;
   const BUFFER_MULTIPLIER = 1.12;
   const BUFFER_LABEL = Math.round((BUFFER_MULTIPLIER - 1) * 100);
-  const STORAGE_KEY = "voiceover_script_state";
-  const SAMPLE_SCRIPT = `Introducing the Voiceover AI Hub, your fast lane for recording-ready scripts. Paste your copy, pick a language and pace, and get an instant read-time estimate with ad slot guidance. This demo uses fixed words-per-minute settings, so add a small buffer if you expect dramatic pauses or a slower read.`;
+  const STORAGE_KEY = "voiceover_script_state_ko";
+  const SAMPLE_SCRIPT = `Voiceover AI Hub 스크립트 길이 계산기 예시입니다. 텍스트를 붙여넣고 언어와 속도를 선택하면 단어 수와 문자 수, 예상 시간, 광고 슬롯 적합도를 즉시 확인할 수 있습니다. 모든 계산은 브라우저에서 진행됩니다.`;
 
   const scriptInput = document.getElementById("scriptInput");
   const languageSelect = document.getElementById("language");
@@ -1148,15 +1154,15 @@
 
   function formatDuration(seconds) {
     if (seconds <= 0) {
-      return { label: "0 s", detail: "0:00 (min:sec)" };
+      return { label: "0초", detail: "0:00 (분:초)" };
     }
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
     const label =
       seconds < 60
-        ? seconds + " s"
-        : mins + " min " + (secs ? secs + " s" : "");
-    const detail = mins + ":" + String(secs).padStart(2, "0") + " (min:sec)";
+        ? seconds + "초"
+        : mins + "분 " + (secs ? secs + "초" : "");
+    const detail = mins + ":" + String(secs).padStart(2, "0") + " (분:초)";
     return { label, detail };
   }
 
@@ -1214,13 +1220,13 @@
 
       if (slot === bestFitElement) {
         slot.classList.add("best-fit");
-        tag.textContent = "closest fit";
+        tag.textContent = "가장 근접";
       } else if (sec < totalSeconds) {
         slot.classList.add("too-short");
-        tag.textContent = "shorter";
+        tag.textContent = "더 짧음";
       } else {
         slot.classList.add("too-long");
-        tag.textContent = "longer";
+        tag.textContent = "더 길음";
       }
     });
 
@@ -1230,7 +1236,7 @@
   function updateBuffer(totalSeconds) {
     if (totalSeconds === 0) {
       bufferMessageEl.textContent =
-        "Add script text to see your safety buffer fit.";
+        "스크립트를 입력하면 안전 버퍼 적용 결과를 보여줍니다.";
       bufferMessageEl.style.color = "#a5f3fc";
       currentBufferSlot = null;
       currentBufferedSeconds = 0;
@@ -1244,40 +1250,39 @@
 
     if (!bufferSlot) {
       bufferMessageEl.textContent =
-        "With a " +
         BUFFER_LABEL +
-        "% safety buffer (" +
+        "% 안전 버퍼(" +
         bufferedSeconds +
-        "s), this runs longer than a 90 s slot.";
+        "초)을 적용하면 90초 슬롯을 초과합니다.";
       bufferMessageEl.style.color = "#fbbf24";
       return null;
     }
 
     bufferMessageEl.textContent =
       BUFFER_LABEL +
-      "% buffer => " +
+      "% 버퍼 → " +
       bufferedSeconds +
-      "s, fits " +
+      "초, " +
       bufferSlot +
-      " s slot.";
+      "초 슬롯에 적합합니다.";
     bufferMessageEl.style.color = "#a5f3fc";
     return bufferSlot;
   }
 
   function describeSlot(slotSeconds) {
-    return slotSeconds ? slotSeconds + " s slot" : "longer than 90 s";
+    return slotSeconds ? slotSeconds + "초 슬롯" : "90초 초과";
   }
 
   function updateLiveRegion(words, totalSeconds, bestSlot) {
     const status =
-      "Words: " +
+      "단어 " +
       words +
-      ". Duration: " +
+      "개. 예상 시간 " +
       durationEl.textContent +
       ". " +
       (bestSlot
-        ? "Closest ad slot: " + bestSlot + " seconds."
-        : "Script exceeds defined ad slots.");
+        ? "가장 가까운 슬롯: " + bestSlot + "초."
+        : "제공되는 슬롯을 초과합니다.");
     liveRegionEl.textContent = status;
   }
 
@@ -1291,7 +1296,7 @@
       };
       localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
     } catch (err) {
-      // Ignore storage issues
+      // 저장 오류 무시
     }
   }
 
@@ -1313,7 +1318,7 @@
         countNumbersToggle.checked = saved.countNumbers;
       }
     } catch (err) {
-      // Ignore hydration issues
+      // 불러오기 오류 무시
     }
   }
 
@@ -1328,12 +1333,12 @@
     const wpm = WPM_TABLE[lang][pace];
 
     wordCountEl.textContent = words;
-    charCountEl.textContent = chars + " / " + MAX_CHARS + " characters";
+    charCountEl.textContent = chars + " / " + MAX_CHARS + "자";
     wpmValueEl.textContent = wpm;
 
     if (words === 0) {
-      durationEl.textContent = "0 s";
-      durationDetailEl.textContent = "0:00 (min:sec)";
+      durationEl.textContent = "0초";
+      durationDetailEl.textContent = "0:00 (분:초)";
       updateSlots(0);
       updateBuffer(0);
       updateLiveRegion(0, 0, null);
@@ -1361,28 +1366,28 @@
     const wpm = wpmValueEl.textContent;
     const bestSlot = describeSlot(currentBestSlot);
     const bufferSlot = currentBufferedSeconds
-      ? describeSlot(currentBufferSlot) + " (" + currentBufferedSeconds + "s buffered)"
-      : "not calculated";
+      ? describeSlot(currentBufferSlot) + " (" + currentBufferedSeconds + "초 버퍼)"
+      : "계산되지 않음";
 
     const payload =
-      "Script timing summary:\n" +
-      "- Words: " + words + "\n" +
-      "- Duration: " + duration + " (" + detail + ")\n" +
-      "- WPM used: " + wpm + "\n" +
-      "- Closest slot: " + bestSlot + "\n" +
-      "- Safety buffer: " + bufferSlot;
+      "스크립트 타이밍 요약:\n" +
+      "- 단어 수: " + words + "\n" +
+      "- 예상 시간: " + duration + " (" + detail + ")\n" +
+      "- 적용 WPM: " + wpm + "\n" +
+      "- 가장 가까운 슬롯: " + bestSlot + "\n" +
+      "- 안전 버퍼: " + bufferSlot;
 
     navigator.clipboard.writeText(payload).then(
       function () {
         copyFeedbackEl.style.display = "inline-block";
-        copyFeedbackEl.textContent = "Copied";
+        copyFeedbackEl.textContent = "복사됨";
         setTimeout(function () {
           copyFeedbackEl.style.display = "none";
         }, 1400);
       },
       function () {
         copyFeedbackEl.style.display = "inline-block";
-        copyFeedbackEl.textContent = "Clipboard blocked";
+        copyFeedbackEl.textContent = "클립보드 차단됨";
         setTimeout(function () {
           copyFeedbackEl.style.display = "none";
         }, 1600);
@@ -1435,7 +1440,7 @@
   });
 
   hydrateState();
-  // Initial calculation
+  // 초기 계산
   recalculate();
 </script>
 </body>
