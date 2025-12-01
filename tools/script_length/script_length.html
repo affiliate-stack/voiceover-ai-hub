@@ -905,7 +905,7 @@
                     <option value="fr">French</option>
                     <option value="es">Spanish</option>
                     <option value="de">German</option>
-                    <option value="other">Other / mixed</option>
+                    <option value="ko">Korean</option>
                   </select>
                 </div>
                 <div class="field">
@@ -1071,14 +1071,22 @@
     fr: { slow: 130, normal: 160, fast: 190 },
     es: { slow: 130, normal: 160, fast: 190 },
     de: { slow: 125, normal: 155, fast: 185 },
-    other: { slow: 130, normal: 160, fast: 190 }
+    ko: { slow: 130, normal: 160, fast: 190 }
   };
 
   const MAX_CHARS = 12000;
   const BUFFER_MULTIPLIER = 1.12;
   const BUFFER_LABEL = Math.round((BUFFER_MULTIPLIER - 1) * 100);
   const STORAGE_KEY = "voiceover_script_state";
-  const SAMPLE_SCRIPT = `Introducing the Voiceover AI Hub, your fast lane for recording-ready scripts. Paste your copy, pick a language and pace, and get an instant read-time estimate with ad slot guidance. This demo uses fixed words-per-minute settings, so add a small buffer if you expect dramatic pauses or a slower read.`;
+  const SAMPLE_SCRIPTS = {
+    en: `Introducing the Voiceover AI Hub, your fast lane for recording-ready scripts. Paste your copy, pick a language and pace, and get an instant read-time estimate with ad slot guidance. This demo uses fixed words-per-minute settings, so add a small buffer if you expect dramatic pauses or a slower read.`,
+    fr: `Voici le Voiceover AI Hub, votre raccourci pour des scripts prêts à être enregistrés. Collez votre texte, choisissez la langue et le débit, et obtenez instantanément une estimation du temps de lecture avec des indications pour le placement des encarts publicitaires. Cette démo utilise un nombre fixe de mots par minute ; prévoyez donc une petite marge si vous attendez des pauses dramatiques ou une lecture plus lente.`,
+    es: `Voiceover AI Hub es tu vía rápida para conseguir guiones listos para grabar. Pega tu texto, elige el idioma y el ritmo, y recibe al instante una estimación del tiempo de lectura con indicaciones para la colocación de bloques de anuncios. Esta demo utiliza un ajuste fijo de palabras por minuto, así que añade un pequeño margen si prevés pausas dramáticas o una lectura más lenta.`,
+    de: `Das Voiceover AI Hub ist Ihre Schnellspur zu aufnahmebereiten Skripten. Fügen Sie Ihren Text ein, wählen Sie Sprache und Sprechtempo, und erhalten Sie sofort eine Schätzung der Lesezeit mit Hinweisen zur Platzierung von Werbeslots. Diese Demo verwendet feste Wörter-pro-Minute-Einstellungen; planen Sie daher einen kleinen Puffer ein, wenn Sie mit dramatischen Pausen oder einem langsameren Lesetempo rechnen.`,
+    ko: `보이스오버 AI 허브는 바로 녹음에 쓸 수 있는 스크립트를 빠르게 준비해 주는 도구입니다.
+텍스트를 붙여넣고, 언어와 속도를 선택하면, 광고 슬롯 구성에 도움이 되는 예상 낭독 시간을 바로 확인할 수 있습니다.
+이 데모는 고정된 분당 단어 수 기준을 사용하므로, 극적인 멈춤이나 느린 읽기를 원한다면 약간의 여유 시간을 더 잡는 것이 좋습니다.`
+  };
 
   const scriptInput = document.getElementById("scriptInput");
   const languageSelect = document.getElementById("language");
@@ -1108,6 +1116,10 @@
   let currentBufferSlot = null;
   let currentBufferedSeconds = 0;
 
+  function getSampleScript(lang) {
+    return SAMPLE_SCRIPTS[lang] || SAMPLE_SCRIPTS.en;
+  }
+
   function sanitizeInput(value) {
     return value
       .replace(/\u00a0/g, " ")
@@ -1135,7 +1147,7 @@
     if (!normalized) return 0;
 
     const tokens = normalized.match(
-      /[A-Za-zÀ-ÿ]+(?:['’][A-Za-zÀ-ÿ]+)?|\d+(?:[.,]\d+)?/g
+      /[A-Za-zÀ-ÿ\u3130-\u318F\uAC00-\uD7A3]+(?:['’][A-Za-zÀ-ÿ\u3130-\u318F\uAC00-\uD7A3]+)?|\d+(?:[.,]\d+)?/g
     );
 
     if (!tokens) return 0;
@@ -1303,6 +1315,9 @@
       if (typeof saved.script === "string") {
         scriptInput.value = saved.script.slice(0, MAX_CHARS);
       }
+      if (saved.language === "other") {
+        saved.language = "ko";
+      }
       if (saved.language && WPM_TABLE[saved.language]) {
         languageSelect.value = saved.language;
       }
@@ -1323,7 +1338,7 @@
     const words = countWords(text, countNumbersToggle.checked);
     const chars = text.length;
 
-    const lang = languageSelect.value in WPM_TABLE ? languageSelect.value : "other";
+    const lang = languageSelect.value in WPM_TABLE ? languageSelect.value : "en";
     const pace = paceSelect.value;
     const wpm = WPM_TABLE[lang][pace];
 
@@ -1414,7 +1429,8 @@
   });
 
   sampleButton.addEventListener("click", function () {
-    scriptInput.value = SAMPLE_SCRIPT.slice(0, MAX_CHARS);
+    const sample = getSampleScript(languageSelect.value);
+    scriptInput.value = sample.slice(0, MAX_CHARS);
     recalculate();
     scriptInput.focus();
   });
