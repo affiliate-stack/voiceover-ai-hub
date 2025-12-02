@@ -32,6 +32,23 @@
       --shadow-chip: 0 10px 25px rgba(15, 23, 42, 0.8);
     }
 
+    body.theme-light {
+      --bg: #f8fafc;
+      --bg-soft: #eef2ff;
+      --panel: #ffffff;
+      --accent: #0ea5e9;
+      --accent-soft: rgba(14, 165, 233, 0.12);
+      --accent-strong: rgba(14, 165, 233, 0.9);
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #d4d7dd;
+      --danger: #dc2626;
+      --shadow-soft: 0 18px 35px rgba(15, 23, 42, 0.12);
+      --shadow-chip: 0 10px 25px rgba(15, 23, 42, 0.12);
+      background: radial-gradient(circle at top, #e2e8f0 0, #ffffff 60%);
+      color: var(--text);
+    }
+
     * {
       box-sizing: border-box;
     }
@@ -135,6 +152,68 @@
     .lang-link:hover {
       color: #fff;
       border-color: rgba(20, 184, 166, 0.7);
+    }
+
+    .theme-toggle {
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.05rem;
+      color: #e2e8f0;
+      text-decoration: none;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.65);
+      cursor: pointer;
+      transition: border-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.4);
+    }
+
+    body.theme-light .site-header {
+      background: rgba(255, 255, 255, 0.9);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    body.theme-light .site-nav a {
+      color: #0f172a;
+      border: 1px solid #cbd5e1;
+      background: #e2e8f0;
+    }
+
+    body.theme-light .site-nav a:hover {
+      color: #0f172a;
+      border-color: var(--accent);
+    }
+
+    body.theme-light .lang-link {
+      color: #0f172a;
+      border: 1px solid rgba(16, 185, 129, 0.45);
+      background: rgba(16, 185, 129, 0.16);
+    }
+
+    body.theme-light .lang-link:hover {
+      color: #0f172a;
+      border-color: rgba(16, 185, 129, 0.7);
+    }
+
+    body.theme-light .theme-toggle {
+      color: #0f172a;
+      border: 1px solid #cbd5e1;
+      background: #f8fafc;
+    }
+
+    body.theme-light .theme-toggle:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.35);
     }
 
     .tool-hero {
@@ -286,6 +365,20 @@
       opacity: 0.6;
     }
 
+    body.theme-light .app {
+      background: linear-gradient(160deg, #ffffff 0%, #e8edf5 75%);
+      border: 1px solid #d6deea;
+      box-shadow: 0 18px 35px rgba(15, 23, 42, 0.12);
+    }
+
+    body.theme-light .app::before {
+      background:
+        radial-gradient(circle at 0 0, rgba(14, 165, 233, 0.16), transparent 55%),
+        radial-gradient(circle at 100% 10%, rgba(99, 102, 241, 0.12), transparent 60%);
+      mix-blend-mode: normal;
+      opacity: 0.6;
+    }
+
     .app-inner {
       position: relative;
       z-index: 1;
@@ -348,6 +441,13 @@
       box-shadow: var(--shadow-chip);
       font-size: 0.72rem;
       color: #e5e7eb;
+    }
+
+    body.theme-light .chip-row {
+      background: #e2e8f0;
+      border: 1px solid #cbd5e1;
+      box-shadow: var(--shadow-chip);
+      color: #0f172a;
     }
 
     .chip-dot {
@@ -422,6 +522,39 @@
       color: var(--muted);
     }
 
+    body.theme-light .hero-btn.secondary {
+      background: #f1f5f9;
+      color: #0f172a;
+      border: 1px solid #cbd5e1;
+    }
+
+    body.theme-light .pill {
+      border: 1px solid rgba(14, 165, 233, 0.6);
+      color: #0f172a;
+      background: rgba(14, 165, 233, 0.14);
+    }
+
+    body.theme-light .badge {
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid rgba(14, 165, 233, 0.6);
+      box-shadow: 0 0 12px rgba(14, 165, 233, 0.35);
+      color: #0f172a;
+    }
+
+    body.theme-light .card {
+      background: linear-gradient(145deg, #ffffff, #f8fafc);
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 18px 35px rgba(15, 23, 42, 0.16);
+    }
+
+    body.theme-light .card::before {
+      background: radial-gradient(circle at top, rgba(59, 130, 246, 0.12), transparent 65%);
+    }
+
+    body.theme-light .card-title {
+      color: #0f172a;
+    }
+
     .field-group {
       display: flex;
       gap: 10px;
@@ -458,6 +591,13 @@
     select:focus {
       border-color: var(--accent);
       box-shadow: 0 0 0 2px var(--accent-strong), 0 0 0 4px rgba(56, 189, 248, 0.25);
+    }
+
+    body.theme-light select,
+    body.theme-light textarea {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      color: #0f172a;
     }
 
     textarea {
@@ -510,11 +650,23 @@
       transition: border-color 0.1s ease, box-shadow 0.1s ease, color 0.1s ease;
     }
 
+    body.theme-light .helper-row button,
+    body.theme-light .chip-button {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      color: #0f172a;
+    }
+
     .helper-row button:hover,
     .chip-button:hover {
       border-color: var(--accent);
       color: var(--accent);
       box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.4);
+    }
+
+    body.theme-light .helper-row button:hover,
+    body.theme-light .chip-button:hover {
+      box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.35);
     }
 
     .chip-button {
@@ -632,6 +784,9 @@
       font-size: 0.72rem;
       color: rgba(226, 232, 240, 0.75);
     }
+    .consent-banner a {
+      color: #c7d2fe;
+    }
 
     .consent-actions {
       margin-top: 0.85rem;
@@ -720,6 +875,12 @@
       color: var(--accent);
     }
 
+    body.theme-light .stat {
+      background: linear-gradient(145deg, #f8fafc, #eef2f7);
+      border: 1px solid #d6deea;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+    }
+
     .slot-panel {
       margin-top: 6px;
       padding: 9px 10px;
@@ -773,6 +934,57 @@
       color: var(--muted);
     }
 
+    body.theme-light .slot-panel {
+      background: linear-gradient(145deg, #eef2ff, #ffffff);
+      border: 1px solid #dfe7ef;
+    }
+
+    body.theme-light .slot {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      color: #475569;
+    }
+
+    body.theme-light .slot.best-fit {
+      color: #0f172a;
+      background: var(--accent-soft);
+      box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.7);
+    }
+
+    body.theme-light .slot span.tag {
+      color: #6b7280;
+    }
+
+    body.theme-light .consent-banner {
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid #d6deea;
+      color: #0f172a;
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+    }
+
+    body.theme-light .consent-copy {
+      color: #475569;
+    }
+
+    body.theme-light .consent-note {
+      color: #475569;
+    }
+
+    body.theme-light .consent-toggle input {
+      accent-color: #0ea5e9;
+    }
+
+    body.theme-light .consent-banner a {
+      color: #0ea5e9;
+    }
+
+    body.theme-light .btn-ghost,
+    body.theme-light .btn-outline {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      color: #0f172a;
+    }
+
     .note {
       margin-top: 8px;
       font-size: 0.72rem;
@@ -814,6 +1026,12 @@
       background: rgba(15, 23, 42, 0.75);
     }
 
+    body.theme-light .toggle {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      color: #0f172a;
+    }
+
     .toggle input {
       accent-color: var(--accent);
       width: 16px;
@@ -838,6 +1056,7 @@
         <a href="#calculator">Calculator</a>
         <a href="/privacy.html">Privacy</a>
       </nav>
+      <button type="button" class="theme-toggle" id="themeToggle" aria-pressed="false" aria-label="Light theme" title="Light theme">☀️</button>
       <a class="lang-link" href="/ko/tools/script_length/script_length.html" hreflang="ko">한국어</a>
     </div>
   </div>
@@ -1078,6 +1297,9 @@
   const BUFFER_MULTIPLIER = 1.12;
   const BUFFER_LABEL = Math.round((BUFFER_MULTIPLIER - 1) * 100);
   const STORAGE_KEY = "voiceover_script_state";
+  const THEME_KEY = "voaih_theme";
+  const THEME_LABELS = { light: "Dark theme", dark: "Light theme" };
+  const THEME_ICONS = { light: "🌙", dark: "☀️" };
   const SAMPLE_SCRIPTS = {
     en: `Introducing the Voiceover AI Hub, your fast lane for recording-ready scripts. Paste your copy, pick a language and pace, and get an instant read-time estimate with ad slot guidance. This demo uses fixed words-per-minute settings, so add a small buffer if you expect dramatic pauses or a slower read.`,
     fr: `Voici le Voiceover AI Hub, votre raccourci pour des scripts prêts à être enregistrés. Collez votre texte, choisissez la langue et le débit, et obtenez instantanément une estimation du temps de lecture avec des indications pour le placement des encarts publicitaires. Cette démo utilise un nombre fixe de mots par minute ; prévoyez donc une petite marge si vous attendez des pauses dramatiques ou une lecture plus lente.`,
@@ -1088,6 +1310,7 @@
 이 데모는 고정된 분당 단어 수 기준을 사용하므로, 극적인 멈춤이나 느린 읽기를 원한다면 약간의 여유 시간을 더 잡는 것이 좋습니다.`
   };
 
+  const themeToggle = document.getElementById("themeToggle");
   const scriptInput = document.getElementById("scriptInput");
   const languageSelect = document.getElementById("language");
   const paceSelect = document.getElementById("pace");
@@ -1115,6 +1338,37 @@
   let currentBestSlot = null;
   let currentBufferSlot = null;
   let currentBufferedSeconds = 0;
+
+  function applyTheme(theme) {
+    const isLight = theme === "light";
+    document.body.classList.toggle("theme-light", isLight);
+    if (themeToggle) {
+      const label = isLight ? THEME_LABELS.light : THEME_LABELS.dark;
+      const icon = isLight ? THEME_ICONS.light : THEME_ICONS.dark;
+      themeToggle.textContent = icon;
+      themeToggle.setAttribute("aria-pressed", isLight ? "true" : "false");
+      themeToggle.setAttribute("aria-label", label);
+      themeToggle.title = label;
+    }
+    try {
+      localStorage.setItem(THEME_KEY, isLight ? "light" : "dark");
+    } catch (err) {
+      // Ignore storage issues
+    }
+  }
+
+  function hydrateTheme() {
+    try {
+      const savedTheme = localStorage.getItem(THEME_KEY);
+      if (savedTheme === "light" || savedTheme === "dark") {
+        applyTheme(savedTheme);
+        return;
+      }
+    } catch (err) {
+      // Ignore storage issues
+    }
+    applyTheme("dark");
+  }
 
   function getSampleScript(lang) {
     return SAMPLE_SCRIPTS[lang] || SAMPLE_SCRIPTS.en;
@@ -1411,6 +1665,13 @@
     scriptInput.focus();
   }
 
+  if (themeToggle) {
+    themeToggle.addEventListener("click", function () {
+      const nextTheme = document.body.classList.contains("theme-light") ? "dark" : "light";
+      applyTheme(nextTheme);
+    });
+  }
+
   scriptInput.addEventListener("input", recalculate);
   languageSelect.addEventListener("change", recalculate);
   paceSelect.addEventListener("change", recalculate);
@@ -1450,6 +1711,7 @@
     }
   });
 
+  hydrateTheme();
   hydrateState();
   // Initial calculation
   recalculate();

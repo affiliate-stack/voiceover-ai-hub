@@ -143,6 +143,7 @@
     .lang-row {
       display: flex;
       gap: .45rem;
+      align-items: center;
     }
     .lang-switch {
       font-size: 0.75rem;
@@ -338,6 +339,122 @@
     .keywords-card {
       display: none;
     }
+    .theme-toggle {
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.05rem;
+      color: #e2e8f0;
+      text-decoration: none;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.65);
+      cursor: pointer;
+      transition: border-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+    }
+    .theme-toggle:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.35);
+    }
+
+    body.theme-light {
+      --text: #0f172a;
+      --muted: #475569;
+      background: radial-gradient(circle at top, #e2e8f0 0%, #ffffff 50%, #f8fafc 100%);
+      color: var(--text);
+    }
+    body.theme-light header {
+      background: rgba(255, 255, 255, 0.9);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+    }
+    body.theme-light .logo,
+    body.theme-light .logo:visited,
+    body.theme-light .logo:active,
+    body.theme-light .logo:focus {
+      color: #0f172a;
+    }
+    body.theme-light .btn-secondary {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      color: #0f172a;
+    }
+    body.theme-light .btn-outline {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      color: #0f172a;
+    }
+    body.theme-light .badge {
+      background: rgba(14, 165, 233, 0.14);
+      border: 1px solid rgba(14, 165, 233, 0.5);
+      color: #0f172a;
+    }
+    body.theme-light .hero-card,
+    body.theme-light .card {
+      background: linear-gradient(145deg, #ffffff, #f8fafc);
+      border: 1px solid #d6deea;
+      color: #0f172a;
+    }
+    body.theme-light .tool-box {
+      background: #f8fafc;
+      border: 1px solid #d6deea;
+    }
+    body.theme-light .keywords li {
+      color: #0f172a;
+      background: #eef2ff;
+      border: 1px solid #cbd5e1;
+    }
+    body.theme-light .disclaimer {
+      background: #f8fafc;
+      border: 1px solid #d6deea;
+      color: #0f172a;
+    }
+    body.theme-light footer {
+      border-top: 1px solid #d6deea;
+      color: #475569;
+    }
+    body.theme-light .lang-switch {
+      background: rgba(16, 185, 129, 0.16);
+      border-color: rgba(16, 185, 129, 0.5);
+      color: #0f172a;
+    }
+    body.theme-light .theme-toggle {
+      color: #0f172a;
+      border: 1px solid #cbd5e1;
+      background: #f8fafc;
+    }
+    body.theme-light .theme-toggle:hover {
+      color: #0ea5e9;
+      border-color: #0ea5e9;
+      box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.35);
+    }
+    body.theme-light .consent-banner {
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid #d6deea;
+      color: #0f172a;
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+    }
+    body.theme-light .consent-copy {
+      color: #475569;
+    }
+    body.theme-light .consent-note {
+      color: #475569;
+    }
+    body.theme-light .consent-toggle input {
+      accent-color: #0ea5e9;
+    }
+    body.theme-light .consent-banner a {
+      color: #0ea5e9;
+    }
+    body.theme-light .btn-ghost,
+    body.theme-light .btn-outline {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      color: #0f172a;
+    }
     .consent-banner {
       position: fixed;
       bottom: 1rem;
@@ -383,6 +500,9 @@
       margin-top: .45rem;
       font-size: .72rem;
       color: rgba(226, 232, 240, 0.75);
+    }
+    .consent-banner a {
+      color: #c7d2fe;
     }
     .btn-ghost {
       background: transparent;
@@ -478,6 +598,7 @@
             <a href="/tools/script_length/script_length.html" class="btn-secondary">Script length tool</a>
           </nav>
           <div class="lang-row">
+            <button type="button" class="theme-toggle" id="themeToggle" aria-pressed="false" aria-label="Light theme" title="Light theme">☀️</button>
             <a href="/ko/" class="btn-secondary lang-switch" hreflang="ko">한국어</a>
           </div>
         </div>
@@ -660,5 +781,53 @@
     </div>
   </div>
   <script defer src="/consent.js"></script>
+  <script>
+    (function () {
+      const THEME_KEY = "voaih_theme";
+      const THEME_LABELS = { light: "Dark theme", dark: "Light theme" };
+      const THEME_ICONS = { light: "🌙", dark: "☀️" };
+      const toggle = document.getElementById("themeToggle");
+
+      function applyTheme(theme) {
+        const isLight = theme === "light";
+        document.body.classList.toggle("theme-light", isLight);
+        if (toggle) {
+          const label = isLight ? THEME_LABELS.light : THEME_LABELS.dark;
+          const icon = isLight ? THEME_ICONS.light : THEME_ICONS.dark;
+          toggle.textContent = icon;
+          toggle.setAttribute("aria-pressed", isLight ? "true" : "false");
+          toggle.setAttribute("aria-label", label);
+          toggle.title = label;
+        }
+        try {
+          localStorage.setItem(THEME_KEY, isLight ? "light" : "dark");
+        } catch (err) {
+          // Ignore storage issues
+        }
+      }
+
+      function hydrateTheme() {
+        try {
+          const saved = localStorage.getItem(THEME_KEY);
+          if (saved === "light" || saved === "dark") {
+            applyTheme(saved);
+            return;
+          }
+        } catch (err) {
+          // Ignore storage issues
+        }
+        applyTheme("dark");
+      }
+
+      if (toggle) {
+        toggle.addEventListener("click", function () {
+          const next = document.body.classList.contains("theme-light") ? "dark" : "light";
+          applyTheme(next);
+        });
+      }
+
+      hydrateTheme();
+    })();
+  </script>
 </body>
 </html>
