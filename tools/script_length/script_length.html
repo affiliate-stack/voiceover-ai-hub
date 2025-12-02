@@ -1506,10 +1506,17 @@
   }
 
   function updateBuffer(totalSeconds) {
+    function setBufferColor(tone) {
+      const isLight = document.body.classList.contains("theme-light");
+      const info = isLight ? "#0ea5e9" : "#a5f3fc";
+      const warn = isLight ? "#b45309" : "#fbbf24";
+      bufferMessageEl.style.color = tone === "warn" ? warn : info;
+    }
+
     if (totalSeconds === 0) {
       bufferMessageEl.textContent =
         "Add script text to see your safety buffer fit.";
-      bufferMessageEl.style.color = "#a5f3fc";
+      setBufferColor("info");
       currentBufferSlot = null;
       currentBufferedSeconds = 0;
       return null;
@@ -1527,7 +1534,7 @@
         "% safety buffer (" +
         bufferedSeconds +
         "s), this runs longer than a 90 s slot.";
-      bufferMessageEl.style.color = "#fbbf24";
+      setBufferColor("warn");
       return null;
     }
 
@@ -1538,7 +1545,7 @@
       "s, fits " +
       bufferSlot +
       " s slot.";
-    bufferMessageEl.style.color = "#a5f3fc";
+    setBufferColor("info");
     return bufferSlot;
   }
 

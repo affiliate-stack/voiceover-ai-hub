@@ -1500,10 +1500,17 @@
   }
 
   function updateBuffer(totalSeconds) {
+    function setBufferColor(tone) {
+      const isLight = document.body.classList.contains("theme-light");
+      const info = isLight ? "#0ea5e9" : "#a5f3fc";
+      const warn = isLight ? "#b45309" : "#fbbf24";
+      bufferMessageEl.style.color = tone === "warn" ? warn : info;
+    }
+
     if (totalSeconds === 0) {
       bufferMessageEl.textContent =
         "스크립트를 입력하면 안전 버퍼 적용 결과를 보여줍니다.";
-      bufferMessageEl.style.color = "#a5f3fc";
+      setBufferColor("info");
       currentBufferSlot = null;
       currentBufferedSeconds = 0;
       return null;
@@ -1520,7 +1527,7 @@
         "% 안전 버퍼(" +
         bufferedSeconds +
         "초)을 적용하면 90초 슬롯을 초과합니다.";
-      bufferMessageEl.style.color = "#fbbf24";
+      setBufferColor("warn");
       return null;
     }
 
@@ -1531,7 +1538,7 @@
       "초, " +
       bufferSlot +
       "초 슬롯에 적합합니다.";
-    bufferMessageEl.style.color = "#a5f3fc";
+    setBufferColor("info");
     return bufferSlot;
   }
 
