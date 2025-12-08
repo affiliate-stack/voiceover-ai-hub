@@ -4,7 +4,7 @@
   const GA_ID = 'G-5V3WHH6K6E';
   const CONSENT_KEY = 'voaih-consent-v1';
   const defaultConsent = { analytics: false };
-  let gaLoaded = false;
+  let gaConfigured = false;
 
   const win = window;
   win.dataLayer = win.dataLayer || [];
@@ -18,19 +18,6 @@
     analytics_storage: 'denied',
     wait_for_update: true
   });
-
-  function loadGA() {
-    if (gaLoaded || !GA_ID) return;
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
-    script.onload = function () {
-      gtag('js', new Date());
-      gtag('config', GA_ID, { anonymize_ip: true });
-    };
-    document.head.appendChild(script);
-    gaLoaded = true;
-  }
 
   function safeStorage(action, value) {
     try {
@@ -70,8 +57,10 @@
       ad_storage: 'denied',
       analytics_storage: analyticsGranted ? 'granted' : 'denied'
     });
-    if (analyticsGranted) {
-      loadGA();
+    if (analyticsGranted && !gaConfigured && GA_ID) {
+      gtag('js', new Date());
+      gtag('config', GA_ID, { anonymize_ip: true });
+      gaConfigured = true;
     }
   }
 
