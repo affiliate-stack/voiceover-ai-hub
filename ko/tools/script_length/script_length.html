@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-  </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5V3WHH6K6E"></script>
   <meta charset="UTF-8">
   <title>보이스오버 스크립트 길이 계산기 | Voiceover AI Hub</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,10 +18,19 @@
   <link rel="canonical" href="https://voiceoveraihub.com/ko/tools/script_length/script_length.html" />
   <link rel="alternate" hreflang="ko" href="https://voiceoveraihub.com/ko/tools/script_length/script_length.html" />
   <link rel="alternate" hreflang="en" href="https://voiceoveraihub.com/tools/script_length/script_length.html" />
+  <link rel="alternate" hreflang="x-default" href="https://voiceoveraihub.com/tools/script_length/script_length.html" />
   <meta property="og:title" content="보이스오버 스크립트 길이 계산기 | Voiceover AI Hub" />
   <meta property="og:description" content="스크립트를 붙여넣고 언어와 발화 속도를 선택해 단어 수, 예상 시간, 광고 슬롯 적합도를 바로 계산하세요. 모든 계산은 브라우저에서 처리됩니다." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://voiceoveraihub.com/ko/tools/script_length/script_length.html" />
+  <meta property="og:image" content="https://voiceoveraihub.com/favicons/favicon.jpg" />
+  <meta property="og:image:alt" content="Voiceover AI Hub 로고" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="보이스오버 스크립트 길이 계산기 | Voiceover AI Hub" />
+  <meta name="twitter:description" content="스크립트를 붙여넣고 언어와 발화 속도를 선택해 단어 수, 예상 시간, 광고 슬롯 적합도를 바로 계산하세요. 모든 계산은 브라우저에서 처리됩니다." />
+  <meta name="twitter:image" content="https://voiceoveraihub.com/favicons/favicon.jpg" />
 
   <style>
     :root {
@@ -300,6 +303,20 @@
       margin-top: 36px;
     }
 
+    .disclosure-note {
+      max-width: 1180px;
+      margin: 20px auto 0;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .disclosure-note strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
     .footer-bar {
       display: flex;
       justify-content: space-between;
@@ -541,6 +558,11 @@
       background: #f1f5f9;
       color: #0f172a;
       border: 1px solid #cbd5e1;
+    }
+
+    body.theme-light .disclosure-note {
+      border-top: 1px solid #d6deea;
+      color: #475569;
     }
 
     body.theme-light .pill {
@@ -1089,7 +1111,7 @@
         <div class="hero-actions">
           <a class="hero-btn primary" href="#calculator">계산기로 이동</a>
           <a class="hero-btn secondary" href="/ko/">메인 가이드로 돌아가기</a>
-          <a class="hero-btn secondary" href="https://try.elevenlabs.io/5cfx02tsbxm9" target="_blank" rel="noopener noreferrer">ElevenLabs 체험하기</a>
+          <a class="hero-btn secondary" href="https://try.elevenlabs.io/5cfx02tsbxm9" target="_blank" rel="noopener noreferrer sponsored">ElevenLabs 체험하기</a>
         </div>
       </div>
     </section>
@@ -1264,6 +1286,11 @@
         </section>
       </div>
     </div>
+  </div>
+  <div class="page-shell">
+    <p class="disclosure-note" id="disclosure">
+      <strong>공개:</strong> 이 도구에는 ElevenLabs 스폰서 링크가 포함되어 있습니다. 상표와 제품명은 각 소유자의 자산입니다.
+    </p>
   </div>
 </main>
 

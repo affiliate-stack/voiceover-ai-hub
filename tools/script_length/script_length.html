@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-  </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5V3WHH6K6E"></script>
   <meta charset="UTF-8">
   <title>Voice-over Script Length Calculator</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Paste your voice-over script, pick language and speaking pace, and instantly see word counts, estimated read time, ad-slot fit, and safety buffer. 100% browser-based.">
   <meta name="robots" content="index,follow">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/x-icon" sizes="any" href="/favicon.ico" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicons/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#0f172a" />
   <link rel="canonical" href="https://voiceoveraihub.com/tools/script_length/script_length.html" />
   <link rel="alternate" hreflang="en" href="https://voiceoveraihub.com/tools/script_length/script_length.html" />
   <link rel="alternate" hreflang="ko" href="https://voiceoveraihub.com/ko/tools/script_length/script_length.html" />
+  <link rel="alternate" hreflang="x-default" href="https://voiceoveraihub.com/tools/script_length/script_length.html" />
   <meta property="og:title" content="Voice-over Script Length Calculator | Voiceover AI Hub" />
   <meta property="og:description" content="Paste your script and get instant word counts, duration, ad-slot fit, and safety buffer. All calculations stay in your browser." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://voiceoveraihub.com/tools/script_length/script_length.html" />
+  <meta property="og:image" content="https://voiceoveraihub.com/favicons/favicon.jpg" />
+  <meta property="og:image:alt" content="Voiceover AI Hub logo" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="ko_KR" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Voice-over Script Length Calculator | Voiceover AI Hub" />
+  <meta name="twitter:description" content="Paste your script and get instant word counts, duration, ad-slot fit, and safety buffer. All calculations stay in your browser." />
+  <meta name="twitter:image" content="https://voiceoveraihub.com/favicons/favicon.jpg" />
 
   <style>
     :root {
@@ -291,6 +302,20 @@
       margin-top: 36px;
     }
 
+    .disclosure-note {
+      max-width: 1180px;
+      margin: 20px auto 0;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .disclosure-note strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
     .footer-bar {
       display: flex;
       justify-content: space-between;
@@ -532,6 +557,11 @@
       background: #f1f5f9;
       color: #0f172a;
       border: 1px solid #cbd5e1;
+    }
+
+    body.theme-light .disclosure-note {
+      border-top: 1px solid #d6deea;
+      color: #475569;
     }
 
     body.theme-light .pill {
@@ -1092,7 +1122,7 @@
         <div class="hero-actions">
           <a class="hero-btn primary" href="#calculator">Jump to calculator</a>
           <a class="hero-btn secondary" href="/">Back to main guide</a>
-          <a class="hero-btn secondary" href="https://try.elevenlabs.io/5cfx02tsbxm9" target="_blank" rel="noopener noreferrer">Try ElevenLabs</a>
+          <a class="hero-btn secondary" href="https://try.elevenlabs.io/5cfx02tsbxm9" target="_blank" rel="noopener noreferrer sponsored">Try ElevenLabs</a>
         </div>
       </div>
     </section>
@@ -1269,6 +1299,11 @@
         </section>
       </div>
     </div>
+  </div>
+  <div class="page-shell">
+    <p class="disclosure-note" id="disclosure">
+      <strong>Disclosure:</strong> This tool includes a sponsored ElevenLabs link. Trademarks and product names are property of their respective owners.
+    </p>
   </div>
 </main>
 

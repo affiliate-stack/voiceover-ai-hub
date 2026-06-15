@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-  </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5V3WHH6K6E"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -27,9 +21,18 @@
   <meta property="og:description" content="ElevenLabs 텍스트-음성 변환 도구, 기능, 실제 활용 사례를 정리한 독립 안내 페이지입니다." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://voiceoveraihub.com/ko/" />
+  <meta property="og:image" content="https://voiceoveraihub.com/favicons/favicon.jpg" />
+  <meta property="og:image:alt" content="Voiceover AI Hub 로고" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="ElevenLabs AI 음성 생성기 가이드 | Voiceover AI Hub" />
+  <meta name="twitter:description" content="ElevenLabs 텍스트-음성 변환 도구, 기능, 실제 활용 사례를 정리한 독립 안내 페이지입니다." />
+  <meta name="twitter:image" content="https://voiceoveraihub.com/favicons/favicon.jpg" />
 
   <link rel="alternate" hreflang="en" href="https://voiceoveraihub.com/" />
   <link rel="alternate" hreflang="ko" href="https://voiceoveraihub.com/ko/" />
+  <link rel="alternate" hreflang="x-default" href="https://voiceoveraihub.com/" />
 
   <script type="application/ld+json">
   {
@@ -497,7 +500,7 @@
           텍스트를 자연스러운 한국어·다국어 음성으로 바꾸고, 수업이나 영상에 안정적인 목소리를 입힐 수 있습니다. 별도 기술 지식은 필요 없습니다.
         </p>
         <div>
-          <a href="https://try.elevenlabs.io/5cfx02tsbxm9" class="btn-primary" target="_blank" rel="noopener noreferrer">
+          <a href="https://try.elevenlabs.io/5cfx02tsbxm9" class="btn-primary" target="_blank" rel="noopener noreferrer sponsored">
             ElevenLabs 사용해 보기
           </a>
           <a href="#overview" class="btn-secondary">기능과 팁 보기</a>
@@ -509,7 +512,7 @@
         <div class="tool-box">
           <p style="margin:0 0 .5rem 0;"><strong>주요 기능:</strong> 여러 언어의 텍스트를 매우 자연스러운 음성으로 변환합니다.</p>
           <p class="muted" style="margin:0 0 .65rem 0;font-size:.75rem;">수업 자료, 소셜 미디어 영상, 제품 데모, 음성 메시지에 적합합니다.</p>
-          <a href="https://try.elevenlabs.io/5cfx02tsbxm9" class="btn-primary" style="width:max-content;" target="_blank" rel="noopener noreferrer">
+          <a href="https://try.elevenlabs.io/5cfx02tsbxm9" class="btn-primary" style="width:max-content;" target="_blank" rel="noopener noreferrer sponsored">
             ElevenLabs로 이동
           </a>
         </div>
@@ -663,5 +666,53 @@
     </div>
   </div>
   <script defer src="/consent.js"></script>
+  <script>
+    (function () {
+      const THEME_KEY = "voaih_theme";
+      const THEME_LABELS = { light: "어두운 테마", dark: "밝은 테마" };
+      const THEME_ICONS = { light: "🌙", dark: "☀️" };
+      const toggle = document.getElementById("themeToggle");
+
+      function applyTheme(theme) {
+        const isLight = theme === "light";
+        document.body.classList.toggle("theme-light", isLight);
+        if (toggle) {
+          const label = isLight ? THEME_LABELS.light : THEME_LABELS.dark;
+          const icon = isLight ? THEME_ICONS.light : THEME_ICONS.dark;
+          toggle.textContent = icon;
+          toggle.setAttribute("aria-pressed", isLight ? "true" : "false");
+          toggle.setAttribute("aria-label", label);
+          toggle.title = label;
+        }
+        try {
+          localStorage.setItem(THEME_KEY, isLight ? "light" : "dark");
+        } catch (err) {
+          // Ignore storage issues
+        }
+      }
+
+      function hydrateTheme() {
+        try {
+          const saved = localStorage.getItem(THEME_KEY);
+          if (saved === "light" || saved === "dark") {
+            applyTheme(saved);
+            return;
+          }
+        } catch (err) {
+          // Ignore storage issues
+        }
+        applyTheme("dark");
+      }
+
+      if (toggle) {
+        toggle.addEventListener("click", function () {
+          const next = document.body.classList.contains("theme-light") ? "dark" : "light";
+          applyTheme(next);
+        });
+      }
+
+      hydrateTheme();
+    })();
+  </script>
 </body>
 </html>
