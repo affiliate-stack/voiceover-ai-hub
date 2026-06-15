@@ -1,6 +1,7 @@
 .DS_Store
 
 # Local handoff/tooling files, not website assets
+README.md
 seo_api_handoff_*.zip
 codex/
 docs/
