@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ElevenLabs Character Cost Calculator | Voiceover AI Hub</title>
+  <meta name="description" content="Estimate ElevenLabs text-to-speech characters, monthly credits, audio minutes, and plan fit before generating AI voiceovers." />
+  <meta name="robots" content="index,follow" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/x-icon" sizes="any" href="/favicon.ico" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicons/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="canonical" href="https://voiceoveraihub.com/tools/character_cost/character_cost.html" />
+  <link rel="alternate" hreflang="en" href="https://voiceoveraihub.com/tools/character_cost/character_cost.html" />
+  <link rel="alternate" hreflang="ko" href="https://voiceoveraihub.com/ko/tools/character_cost/character_cost.html" />
+  <link rel="alternate" hreflang="x-default" href="https://voiceoveraihub.com/tools/character_cost/character_cost.html" />
+  <meta property="og:title" content="ElevenLabs Character Cost Calculator | Voiceover AI Hub" />
+  <meta property="og:description" content="Estimate text-to-speech characters, monthly credits, audio minutes, and plan fit before creating AI voiceovers." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://voiceoveraihub.com/tools/character_cost/character_cost.html" />
+  <meta property="og:image" content="https://voiceoveraihub.com/favicons/favicon.jpg" />
+  <meta property="og:image:alt" content="Voiceover AI Hub logo" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="ko_KR" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="ElevenLabs Character Cost Calculator | Voiceover AI Hub" />
+  <meta name="twitter:description" content="Estimate text-to-speech characters, monthly credits, audio minutes, and plan fit before creating AI voiceovers." />
+  <meta name="twitter:image" content="https://voiceoveraihub.com/favicons/favicon.jpg" />
+  <link rel="stylesheet" href="/tools/character_cost/character_cost.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "ElevenLabs Character Cost Calculator",
+    "url": "https://voiceoveraihub.com/tools/character_cost/character_cost.html",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any",
+    "description": "A browser-based calculator for estimating ElevenLabs text-to-speech characters, credits, audio minutes, and plan fit.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "inLanguage": "en"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does this ElevenLabs character calculator work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It counts pasted text or estimates characters from words, multiplies by scripts per month, then applies buffer, regeneration, and credit-per-character assumptions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does this tool call the ElevenLabs API?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The calculator runs entirely in the browser and does not send script text to a server or API."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are the plan estimates exact?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. They are planning estimates based on public credit allowances and editable assumptions. Always confirm current pricing and credit behavior on ElevenLabs before buying."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+<header class="site-header">
+  <div class="page-shell">
+    <div class="site-bar">
+      <a href="/" class="brand" aria-label="Voiceover AI Hub">
+        <img src="/favicons/favicon-48x48.png" alt="Voiceover AI Hub logo" />
+        <span>Voiceover AI Hub</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="/">Home</a>
+        <a href="#calculator">Cost calculator</a>
+        <a href="/tools/script_length/script_length.html">Script timer</a>
+        <a href="#guide">Guide</a>
+        <a href="/privacy.html">Privacy</a>
+      </nav>
+      <button type="button" class="theme-toggle" id="themeToggle" aria-pressed="true" aria-label="Dark theme" title="Dark theme">🌙</button>
+      <a class="lang-link" href="/ko/tools/character_cost/character_cost.html" hreflang="ko">한국어</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="page-shell hero">
+    <span class="kicker">Tool · ElevenLabs credits</span>
+    <h1>ElevenLabs character cost calculator</h1>
+    <p>
+      Estimate how many text-to-speech characters and credits your scripts may use before you generate AI voiceovers. Paste a sample script or plan from average word count, then adjust buffer, regenerations, and credit assumptions.
+    </p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#calculator">Calculate credits</a>
+      <a class="btn-secondary" href="https://try.elevenlabs.io/5cfx02tsbxm9" target="_blank" rel="noopener noreferrer sponsored">Try ElevenLabs</a>
+      <a class="btn-secondary" href="/tools/script_length/script_length.html">Check script length</a>
+    </div>
+  </section>
+
+  <div class="page-shell tool-layout" id="calculator">
+    <section class="panel" aria-labelledby="inputsTitle">
+      <div class="panel-header">
+        <h2 id="inputsTitle">Usage inputs</h2>
+        <p>Use exact pasted text when you have it. If not, estimate from words per script.</p>
+      </div>
+      <div class="form-grid">
+        <div class="field full">
+          <label for="scriptText">Script sample</label>
+          <textarea id="scriptText" maxlength="40000" placeholder="Paste one typical voiceover script here. Leave blank to estimate from word count."></textarea>
+          <span class="hint">All counting happens in your browser. The text is not uploaded.</span>
+        </div>
+        <div class="field">
+          <label for="wordsPerScript">Words per script</label>
+          <input id="wordsPerScript" type="number" min="0" step="1" value="150" />
+          <span class="hint">Used only when the script box is empty.</span>
+        </div>
+        <div class="field">
+          <label for="scriptsPerMonth">Scripts per month</label>
+          <input id="scriptsPerMonth" type="number" min="0" step="1" value="20" />
+        </div>
+        <div class="field">
+          <label for="avgCharsPerWord">Average letters per word</label>
+          <input id="avgCharsPerWord" type="number" min="1" max="15" step="0.1" value="5" />
+          <span class="hint">Spaces are added automatically.</span>
+        </div>
+        <div class="field">
+          <label for="wpm">Reading pace (WPM)</label>
+          <input id="wpm" type="number" min="60" max="260" step="5" value="150" />
+        </div>
+        <div class="field">
+          <label for="bufferPercent">Safety buffer <span id="bufferValue">15%</span></label>
+          <input id="bufferPercent" type="range" min="0" max="50" step="5" value="15" />
+          <span class="hint">Covers intros, fixes, and small rewrites.</span>
+        </div>
+        <div class="field">
+          <label for="generationMultiplier">Regeneration multiplier</label>
+          <select id="generationMultiplier">
+            <option value="1">1.0x · final only</option>
+            <option value="1.25" selected>1.25x · light retries</option>
+            <option value="1.5">1.5x · normal iteration</option>
+            <option value="2">2.0x · heavy testing</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="creditRate">Credits per character</label>
+          <select id="creditRate">
+            <option value="1" selected>1.0 · standard planning</option>
+            <option value="0.5">0.5 · discounted API assumption</option>
+            <option value="custom">Custom</option>
+          </select>
+          <span class="hint">Most standard TTS planning starts at 1 character = 1 credit.</span>
+        </div>
+        <div class="field">
+          <label for="customCreditRate">Custom credits per character</label>
+          <input id="customCreditRate" type="number" min="0.05" step="0.05" value="1" />
+        </div>
+        <div class="field">
+          <label for="planSelect">Compare against plan</label>
+          <select id="planSelect">
+            <option value="free">Free · 10k credits</option>
+            <option value="starter">Starter · 30k credits</option>
+            <option value="creator" selected>Creator · 121k credits</option>
+            <option value="pro">Pro · 600k credits</option>
+            <option value="scale">Scale · 1.8M credits</option>
+            <option value="business">Business · 6M credits</option>
+            <option value="custom">Custom monthly credits</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="customPlanCredits">Custom monthly credits</label>
+          <input id="customPlanCredits" type="number" min="1" step="1000" value="100000" />
+        </div>
+      </div>
+      <div class="controls-row">
+        <button class="btn-primary" type="button" id="copyButton">Copy summary</button>
+        <button class="btn-ghost" type="button" id="resetButton">Reset</button>
+        <span class="hint" id="copyFeedback" aria-live="polite"></span>
+      </div>
+    </section>
+
+    <aside class="panel" aria-labelledby="resultsTitle">
+      <div class="panel-header">
+        <h2 id="resultsTitle">Estimate</h2>
+        <p>Use this before buying credits or preparing a batch of scripts.</p>
+      </div>
+      <div class="results-grid">
+        <div class="metric">
+          <span>Characters / script</span>
+          <strong id="charactersPerScript">0</strong>
+          <small id="charactersDetail">Based on pasted text</small>
+        </div>
+        <div class="metric">
+          <span>Monthly characters</span>
+          <strong id="monthlyCharacters">0</strong>
+          <small id="monthlyDetail">scripts / month</small>
+        </div>
+        <div class="metric">
+          <span>Estimated credits</span>
+          <strong id="estimatedCredits">0</strong>
+          <small id="creditsDetail">includes buffer and regenerations</small>
+        </div>
+        <div class="metric">
+          <span>Estimated audio</span>
+          <strong id="estimatedAudio">0</strong>
+          <small id="audioDetail">minutes / month</small>
+        </div>
+      </div>
+      <div class="recommendation" id="recommendation">
+        <h3 id="recommendationTitle">Plan estimate</h3>
+        <p id="recommendationText">Enter usage to see a plan estimate.</p>
+        <div class="usage-bar" aria-hidden="true">
+          <div class="usage-fill" id="usageFill"></div>
+        </div>
+      </div>
+      <div class="plan-list" id="planRows" aria-label="Public credit allowance comparison"></div>
+      <p class="source-note">
+        Planning data is based on public ElevenLabs pricing and FAQ text checked on June 15, 2026. Pricing and model credit rules can change, so confirm the current details on
+        <a href="https://elevenlabs.io/pricing" target="_blank" rel="noopener noreferrer">ElevenLabs pricing</a>.
+      </p>
+    </aside>
+  </div>
+
+  <div class="page-shell guide" id="guide">
+    <section>
+      <h2>When this calculator is useful</h2>
+      <p>
+        AI voiceover costs are easier to control when you estimate character usage before generating audio. This is especially useful for YouTube channels, ads, course lessons, IVR prompts, podcasts, and repeated product demo scripts.
+      </p>
+      <ul>
+        <li>Paste a real script sample for the most accurate character count.</li>
+        <li>Add a regeneration multiplier if you often test multiple voice styles.</li>
+        <li>Use a safety buffer when scripts are still being edited.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Character planning tips</h2>
+      <p>
+        Count all text that will be generated, including punctuation, spaces, rewritten lines, and alternate takes. If you plan multilingual voiceovers, calculate each language separately because translated scripts often change length.
+      </p>
+      <p>
+        Use the script timer when you also need to fit the voiceover into a 15, 30, 60, or 90 second slot.
+      </p>
+    </section>
+    <section id="faq">
+      <h2>FAQ</h2>
+      <div class="faq-list">
+        <details>
+          <summary>Does this calculator know my exact ElevenLabs billing?</summary>
+          <p>No. It is an estimate based on public credit allowances and the assumptions you choose. Your actual usage can vary by model, product, API setting, and billing changes.</p>
+        </details>
+        <details>
+          <summary>Is my pasted script private?</summary>
+          <p>Yes. This tool runs in the browser and does not send your script text to Voiceover AI Hub, ElevenLabs, or another API.</p>
+        </details>
+        <details>
+          <summary>What credit rate should I use?</summary>
+          <p>Use 1.0 credit per character for conservative standard TTS planning. Use a lower custom value only when you know your selected model or API path has discounted usage.</p>
+        </details>
+      </div>
+    </section>
+    <p class="disclosure-note" id="disclosure">
+      <strong>Disclosure:</strong> This tool includes a sponsored ElevenLabs link. Trademarks and product names are property of their respective owners.
+    </p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="page-shell footer-bar">
+    <span>Voiceover AI Hub · Tools.</span>
+    <span class="footer-links">
+      <a href="/privacy.html">Privacy & cookies</a>
+      <button type="button" class="cookie-settings-link" data-consent-open>Cookie settings</button>
+    </span>
+  </div>
+</footer>
+
+<div class="consent-banner" data-consent-banner hidden aria-hidden="true">
+  <strong>Privacy choices</strong>
+  <p class="consent-copy">
+    We use Google Analytics 4 to measure visits. Analytics cookies only load if you allow them. Read the
+    <a href="/privacy.html">Privacy & Cookies Policy</a> for the full details.
+  </p>
+  <label class="consent-toggle">
+    <input type="checkbox" data-consent-toggle />
+    <span>Analytics (GA4) — helps us learn what tutorials people read.</span>
+  </label>
+  <p class="consent-note">You can change or withdraw consent anytime via “Cookie settings.”</p>
+  <div class="consent-actions">
+    <button class="btn-primary" type="button" data-consent-accept>Allow analytics</button>
+    <button class="btn-ghost" type="button" data-consent-reject>Reject all</button>
+    <button class="btn-outline" type="button" data-consent-save>Save choices</button>
+  </div>
+</div>
+<script defer src="/consent.js"></script>
+<script defer src="/tools/character_cost/character_cost.js"></script>
+</body>
+</html>
