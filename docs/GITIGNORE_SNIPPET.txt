@@ -1,5 +1,3 @@
-.DS_Store
-
 # Local SEO credentials and generated outputs
 tools/seo/.env
 tools/seo/*/.env

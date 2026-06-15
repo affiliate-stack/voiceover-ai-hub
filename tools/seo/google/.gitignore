@@ -1,0 +1,11 @@
+.env
+*.log
+outputs/
+__pycache__/
+*.pyc
+client_secret*.json
+credentials*.json
+token*.json
+service-account*.json
+service_account*.json
+*.secret.json
