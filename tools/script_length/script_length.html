@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Voice-over Script Length Calculator</title>
+  <title>Script Length Calculator and Script Timer | Voiceover AI Hub</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Paste your voice-over script, pick language and speaking pace, and instantly see word counts, estimated read time, ad-slot fit, and safety buffer. 100% browser-based.">
+  <meta name="description" content="Free script length calculator and script timer for voice-over. Estimate word count, read time, 15-90 second ad slots, and safety buffer.">
   <meta name="robots" content="index,follow">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
   <link rel="icon" type="image/x-icon" sizes="any" href="/favicon.ico" />
@@ -18,8 +18,8 @@
   <link rel="alternate" hreflang="en" href="https://voiceoveraihub.com/tools/script_length/script_length.html" />
   <link rel="alternate" hreflang="ko" href="https://voiceoveraihub.com/ko/tools/script_length/script_length.html" />
   <link rel="alternate" hreflang="x-default" href="https://voiceoveraihub.com/tools/script_length/script_length.html" />
-  <meta property="og:title" content="Voice-over Script Length Calculator | Voiceover AI Hub" />
-  <meta property="og:description" content="Paste your script and get instant word counts, duration, ad-slot fit, and safety buffer. All calculations stay in your browser." />
+  <meta property="og:title" content="Script Length Calculator and Script Timer | Voiceover AI Hub" />
+  <meta property="og:description" content="Estimate script word count, read time, 15-90 second ad slots, and safety buffer. All calculations stay in your browser." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://voiceoveraihub.com/tools/script_length/script_length.html" />
   <meta property="og:image" content="https://voiceoveraihub.com/favicons/favicon.jpg" />
@@ -27,9 +27,67 @@
   <meta property="og:locale" content="en_US" />
   <meta property="og:locale:alternate" content="ko_KR" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Voice-over Script Length Calculator | Voiceover AI Hub" />
-  <meta name="twitter:description" content="Paste your script and get instant word counts, duration, ad-slot fit, and safety buffer. All calculations stay in your browser." />
+  <meta name="twitter:title" content="Script Length Calculator and Script Timer | Voiceover AI Hub" />
+  <meta name="twitter:description" content="Estimate script word count, read time, 15-90 second ad slots, and safety buffer. All calculations stay in your browser." />
   <meta name="twitter:image" content="https://voiceoveraihub.com/favicons/favicon.jpg" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Voice-over Script Length Calculator",
+    "url": "https://voiceoveraihub.com/tools/script_length/script_length.html",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any",
+    "description": "A browser-based script length calculator and script timer for estimating voice-over read time, word count, ad-slot fit, and safety buffer.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "inLanguage": "en"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I calculate script length?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Paste your script, choose a language and speaking pace, and the calculator estimates word count, read time, and the nearest 15, 30, 45, 60, or 90 second slot."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many words fit in a 60 second voice-over?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "At a normal English pace of 150 words per minute, a 60 second voice-over is about 150 words before adding pauses or a safety buffer."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use this as a script timer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. It estimates time from the script text before recording. For final delivery, record a test read and compare it with the estimate."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the script text leave my browser?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The script length calculator runs in the browser and stores optional draft state locally on your device."
+        }
+      }
+    ]
+  }
+  </script>
 
   <style>
     :root {
@@ -316,6 +374,91 @@
       font-weight: 600;
     }
 
+    .seo-content {
+      margin-top: 28px;
+      display: grid;
+      gap: 28px;
+    }
+
+    .seo-section {
+      border-top: 1px solid rgba(148, 163, 184, 0.18);
+      padding-top: 24px;
+    }
+
+    .seo-section h2 {
+      margin: 0 0 0.65rem 0;
+      font-size: clamp(1.35rem, 2vw, 1.8rem);
+      line-height: 1.2;
+    }
+
+    .seo-section h3 {
+      margin: 0 0 0.25rem 0;
+      font-size: 1rem;
+    }
+
+    .seo-section p {
+      margin: 0 0 0.9rem 0;
+      max-width: 780px;
+      color: var(--muted);
+    }
+
+    .seo-list {
+      margin: 0;
+      padding-left: 1.2rem;
+      color: var(--muted);
+    }
+
+    .timing-examples {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .timing-example {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      background: rgba(15, 23, 42, 0.5);
+      min-height: 112px;
+    }
+
+    .timing-example strong {
+      display: block;
+      color: var(--text);
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .timing-example span {
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 10px;
+      max-width: 900px;
+    }
+
+    .faq-list details {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      background: rgba(15, 23, 42, 0.42);
+    }
+
+    .faq-list summary {
+      cursor: pointer;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .faq-list details p {
+      margin-top: 0.55rem;
+      margin-bottom: 0;
+    }
+
     .footer-bar {
       display: flex;
       justify-content: space-between;
@@ -564,6 +707,16 @@
       color: #475569;
     }
 
+    body.theme-light .seo-section {
+      border-top: 1px solid #d6deea;
+    }
+
+    body.theme-light .timing-example,
+    body.theme-light .faq-list details {
+      background: #f8fafc;
+      border: 1px solid #d6deea;
+    }
+
     body.theme-light .pill {
       border: 1px solid rgba(14, 165, 233, 0.6);
       color: #0f172a;
@@ -754,6 +907,9 @@
         flex: 1;
       }
       .stats-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .timing-examples {
         grid-template-columns: minmax(0, 1fr);
       }
     }
@@ -1102,6 +1258,7 @@
       <nav class="site-nav">
         <a href="/">Home</a>
         <a href="#calculator">Calculator</a>
+        <a href="#guide">Guide</a>
         <a href="/privacy.html">Privacy</a>
       </nav>
       <button type="button" class="theme-toggle" id="themeToggle" aria-pressed="false" aria-label="Light theme" title="Light theme">☀️</button>
@@ -1194,6 +1351,7 @@
 
               <textarea id="scriptInput"
                         aria-describedby="inputHint limitHint"
+                        maxlength="12000"
                         placeholder="Paste your script here..."></textarea>
 
               <div class="helper-row">
@@ -1205,7 +1363,7 @@
               </div>
               <div class="helper-row">
                 <span class="helper-note" id="limitHint">
-                  Max 12,000 characters. Extra whitespace is trimmed on paste.
+                  Max 12,000 characters. Paste, type, or edit normally.
                 </span>
                 <span class="alert-inline" id="limitAlert" style="display:none;">Trimmed to the limit.</span>
               </div>
@@ -1299,6 +1457,66 @@
         </section>
       </div>
     </div>
+  </div>
+  <div class="page-shell seo-content" id="guide">
+    <section class="seo-section">
+      <h2>How this script length calculator works</h2>
+      <p>
+        The calculator counts the words in your script, applies a fixed words-per-minute rate for the selected language and pace, then converts the result into an estimated read time. It also compares the timing against common 15, 30, 45, 60, and 90 second voice-over or ad slots.
+      </p>
+      <ul class="seo-list">
+        <li>Use slow pace for instructional reads, disclaimers, and scripts with longer pauses.</li>
+        <li>Use normal pace for most YouTube, course, product demo, and podcast voice-overs.</li>
+        <li>Use fast pace only when the final recording is intentionally energetic or time-constrained.</li>
+      </ul>
+    </section>
+
+    <section class="seo-section">
+      <h2>Quick script timing targets</h2>
+      <p>
+        These examples use the normal English pace of 150 words per minute. Leave room for breaths, music cues, product shots, and emphasis when recording a final voice-over.
+      </p>
+      <div class="timing-examples" aria-label="Common script length examples">
+        <div class="timing-example">
+          <strong>15 seconds</strong>
+          <span>About 38 words for a short intro, bumper, or compact ad read.</span>
+        </div>
+        <div class="timing-example">
+          <strong>30 seconds</strong>
+          <span>About 75 words for a social ad, product hook, or quick explainer.</span>
+        </div>
+        <div class="timing-example">
+          <strong>60 seconds</strong>
+          <span>About 150 words for a complete promotional voice-over or lesson segment.</span>
+        </div>
+        <div class="timing-example">
+          <strong>90 seconds</strong>
+          <span>About 225 words for a longer tutorial, demo, or narrated overview.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="seo-section" id="faq">
+      <h2>Script timing FAQ</h2>
+      <div class="faq-list">
+        <details>
+          <summary>How long is my script?</summary>
+          <p>Paste the script into the calculator and choose the speaking pace. The result updates immediately with word count, estimated duration, and the closest ad slot.</p>
+        </details>
+        <details>
+          <summary>How many words fit in a 60 second script?</summary>
+          <p>At a normal English pace of 150 words per minute, 60 seconds is about 150 words. Use fewer words when the read needs pauses, emphasis, or music transitions.</p>
+        </details>
+        <details>
+          <summary>Can I use this as a script timer?</summary>
+          <p>Yes. It estimates time from the script text before recording. For final delivery, record a test read and compare it with the estimate.</p>
+        </details>
+        <details>
+          <summary>Does the calculator send my script anywhere?</summary>
+          <p>No. The word count and timing estimate run in your browser. Draft state is stored locally only if your browser allows local storage.</p>
+        </details>
+      </div>
+    </section>
   </div>
   <div class="page-shell">
     <p class="disclosure-note" id="disclosure">
@@ -1425,14 +1643,6 @@
 
   function getSampleScript(lang) {
     return SAMPLE_SCRIPTS[lang] || SAMPLE_SCRIPTS.en;
-  }
-
-  function sanitizeInput(value) {
-    return value
-      .replace(/\u00a0/g, " ")
-      .replace(/[ \t]+/g, " ")
-      .replace(/\n{3,}/g, "\n\n")
-      .trim();
   }
 
   function clampInputLength() {
@@ -1736,18 +1946,6 @@
   languageSelect.addEventListener("change", recalculate);
   paceSelect.addEventListener("change", recalculate);
   countNumbersToggle.addEventListener("change", recalculate);
-
-  scriptInput.addEventListener("paste", function (event) {
-    const data =
-      event.clipboardData && event.clipboardData.getData
-        ? event.clipboardData.getData("text")
-        : "";
-    event.preventDefault();
-    const cleaned = sanitizeInput(data).slice(0, MAX_CHARS);
-    scriptInput.value = cleaned;
-    recalculate();
-    scriptInput.focus();
-  });
 
   sampleButton.addEventListener("click", function () {
     const sample = getSampleScript(languageSelect.value);
