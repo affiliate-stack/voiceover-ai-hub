@@ -128,6 +128,11 @@
       box-sizing: border-box;
     }
 
+    code {
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
     .sr-only {
       position: absolute;
       width: 1px;
@@ -147,6 +152,7 @@
       background: radial-gradient(circle at top, #1e293b 0, #020617 55%);
       color: var(--text);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     .page-shell {
@@ -181,9 +187,11 @@
       font-weight: 700;
       letter-spacing: -0.02em;
       text-decoration: none;
+      min-width: 0;
     }
 
     .brand img {
+      flex: 0 0 auto;
       width: 32px;
       height: 32px;
       border-radius: 999px;
@@ -207,6 +215,10 @@
       border-radius: 999px;
       border: 1px solid rgba(148, 163, 184, 0.35);
       background: rgba(15, 23, 42, 0.65);
+      max-width: 100%;
+      text-align: center;
+      white-space: normal;
+      overflow-wrap: anywhere;
     }
 
     .site-nav a:hover {
@@ -222,6 +234,10 @@
       border-radius: 999px;
       border: 1px solid rgba(20, 184, 166, 0.5);
       background: rgba(20, 184, 166, 0.12);
+      max-width: 100%;
+      text-align: center;
+      white-space: normal;
+      overflow-wrap: anywhere;
     }
 
     .lang-link:hover {
@@ -303,6 +319,8 @@
       margin: 0 0 0.5rem 0;
       font-size: clamp(2rem, 3vw, 2.6rem);
       line-height: 1.1;
+      overflow-wrap: anywhere;
+      hyphens: auto;
     }
 
     .tool-hero p {
@@ -312,15 +330,20 @@
     }
 
     .pill {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       gap: 0.4rem;
+      width: fit-content;
+      max-width: 100%;
+      flex-wrap: wrap;
+      margin-bottom: 0.75rem;
       padding: 0.35rem 0.8rem;
       border-radius: 999px;
       border: 1px solid rgba(99, 102, 241, 0.45);
       color: #e2e8f0;
       background: rgba(99, 102, 241, 0.16);
       font-size: 0.78rem;
+      overflow-wrap: anywhere;
     }
 
     .hero-actions {
@@ -338,6 +361,10 @@
       text-decoration: none;
       font-weight: 600;
       font-size: 0.88rem;
+      max-width: 100%;
+      text-align: center;
+      white-space: normal;
+      overflow-wrap: anywhere;
     }
 
     .hero-btn.primary {
@@ -948,6 +975,7 @@
       line-height: 1.4;
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
       z-index: 100;
+      max-width: min(420px, calc(100vw - 1.5rem));
     }
 
     .consent-copy {

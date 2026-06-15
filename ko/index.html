@@ -90,12 +90,17 @@
       --accent: #14b8a6;
     }
     * { box-sizing: border-box; }
+    code {
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: radial-gradient(circle at top, #111827 0%, #020617 45%, #020617 100%);
       color: var(--text);
       line-height: 1.6;
+      overflow-x: hidden;
     }
     main {
       margin-top: .5rem;
@@ -191,6 +196,8 @@
       align-items: center;
       color: var(--text);
       text-decoration: none;
+      min-width: 0;
+      overflow-wrap: anywhere;
     }
     .logo:visited,
     .logo:active,
@@ -198,6 +205,7 @@
       color: var(--text);
     }
     .logo-img {
+      flex: 0 0 auto;
       width: 30px;
       height: 30px;
       border-radius: 9999px;
@@ -214,6 +222,8 @@
       font-size: clamp(2.3rem, 4vw, 3rem);
       line-height: 1.05;
       margin-bottom: 1rem;
+      overflow-wrap: anywhere;
+      hyphens: auto;
     }
     .hero p {
       color: var(--muted);
@@ -245,6 +255,10 @@
       cursor: pointer;
       text-decoration: none;
       font-size: 0.85rem;
+      max-width: 100%;
+      text-align: center;
+      white-space: normal;
+      overflow-wrap: anywhere;
     }
     .btn-secondary {
       background: rgba(15, 23, 42, 0.1);
@@ -255,6 +269,10 @@
       font-size: 0.8rem;
       text-decoration: none;
       margin-left: .5rem;
+      max-width: 100%;
+      text-align: center;
+      white-space: normal;
+      overflow-wrap: anywhere;
     }
     .hero-actions {
       display: flex;
@@ -289,6 +307,11 @@
       padding: .75rem .8rem 1rem .8rem;
       border-radius: .75rem;
       margin-bottom: .5rem;
+    }
+    .tool-box .btn-primary,
+    .tool-box .btn-secondary {
+      max-width: 100%;
+      white-space: normal;
     }
     .section {
       padding: 2.5rem 0 1.5rem 0;
@@ -510,6 +533,7 @@
       line-height: 1.4;
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
       z-index: 100;
+      max-width: min(420px, calc(100vw - 1.5rem));
     }
     .consent-copy {
       margin-top: .35rem;
@@ -606,7 +630,17 @@
     }
     @media (max-width: 540px) {
       .container {
-        padding-inline: clamp(1.75rem, 8vw, 2.5rem);
+        padding-inline: clamp(1rem, 6vw, 1.5rem);
+      }
+      .hero,
+      .hero > div {
+        min-width: 0;
+        max-width: 100%;
+      }
+      .hero-actions .btn-primary,
+      .hero-actions .btn-secondary {
+        width: 100%;
+        margin-left: 0;
       }
       .consent-banner {
         left: .75rem;
@@ -631,8 +665,8 @@
             <a href="#use-cases" class="btn-secondary">활용 사례</a>
             <a href="#faq" class="btn-secondary">FAQ</a>
             <a href="#disclosure" class="btn-secondary">공개 사항</a>
-            <a href="/ko/tools/script_length/script_length.html" class="btn-secondary">스크립트 길이 도구</a>
-            <a href="/ko/tools/character_cost/character_cost.html" class="btn-secondary">문자 비용 도구</a>
+            <a href="/ko/tools/script_length/script_length.html" class="btn-secondary">스크립트 길이 계산기</a>
+            <a href="/ko/tools/character_cost/character_cost.html" class="btn-secondary">크레딧 계산기</a>
           </nav>
           <div class="lang-row">
             <button type="button" class="theme-toggle" id="themeToggle" aria-pressed="false" aria-label="밝은 테마" title="밝은 테마">☀️</button>
@@ -657,7 +691,7 @@
           </a>
           <a href="#overview" class="btn-secondary">기능과 팁 보기</a>
           <a href="/ko/tools/script_length/script_length.html" class="btn-secondary">스크립트 길이 계산기</a>
-          <a href="/ko/tools/character_cost/character_cost.html" class="btn-secondary">문자 비용 계산기</a>
+          <a href="/ko/tools/character_cost/character_cost.html" class="btn-secondary">크레딧 계산기</a>
         </div>
       </div>
       <div class="hero-card" id="elevenlabs">
@@ -678,7 +712,7 @@
     <div class="container section" id="overview">
       <h2>ElevenLabs AI 음성 생성기 개요</h2>
       <p>
-        ElevenLabs는 브라우저에서 쓰는 AI 음성 생성·텍스트-음성 변환(TTS) 플랫폼입니다. 사람과 비슷한 말하기 스타일, 여러 언어 지원, 마케팅·교육·크리에이터 작업에 바로 쓸 수 있는 오디오 품질에 맞춰져 있습니다. 이 페이지는 꼭 필요한 정보만 모아 여러 페이지를 따로 찾지 않고도 빠르게 판단하도록 돕습니다.
+        ElevenLabs는 브라우저에서 사용하는 AI 음성 생성·텍스트-음성 변환(TTS) 플랫폼입니다. 사람 목소리에 가까운 말하기 스타일, 여러 언어 지원, 마케팅·교육·크리에이터 작업에 바로 쓸 수 있는 오디오 품질이 강점입니다. 이 페이지는 꼭 필요한 정보만 모아 여러 페이지를 따로 찾지 않고도 빠르게 판단하도록 돕습니다.
       </p>
       <div class="grid-3">
         <div class="card">
@@ -687,7 +721,7 @@
         </div>
         <div class="card">
           <h3>워크플로 제어</h3>
-          <p class="muted">스크립트 내 구간을 멈추거나 필요한 줄만 다시 생성해 전체 음성을 처음부터 만들지 않고 수정할 수 있습니다.</p>
+          <p class="muted">스크립트 내 구간을 멈추거나 필요한 줄만 다시 만들어 전체 음성을 처음부터 만들지 않고 수정할 수 있습니다.</p>
         </div>
         <div class="card">
           <h3>유연한 출력</h3>
@@ -696,7 +730,7 @@
       </div>
       <div class="card keywords-card" style="margin-top:1.25rem;" aria-hidden="true">
         <h3>추천 키워드</h3>
-        <p class="muted">ElevenLabs를 비교·검색하는 사용자를 잡으려면 제목, FAQ, 비교 표에 이런 검색어를 넣어 보세요.</p>
+        <p class="muted">ElevenLabs를 비교·검색하는 사용자에게 도달하려면 제목, FAQ, 비교 표에 이런 검색어를 넣어 보세요.</p>
         <ul class="keywords" aria-label="Suggested target keywords">
           <li>ai 음성 생성기</li>
           <li>elevenlabs 리뷰</li>
