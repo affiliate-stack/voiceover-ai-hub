@@ -55,7 +55,7 @@ a {
   width: 100%;
   max-width: 1180px;
   margin: 0 auto;
-  padding: 0 clamp(1.25rem, 4vw, 3rem);
+  padding: 0 clamp(1.5rem, 4vw, 3rem);
   min-width: 0;
 }
 
@@ -764,8 +764,8 @@ body.theme-dark .consent-note {
 
 @media (max-width: 680px) {
   .page-shell {
-    padding-left: max(1.25rem, env(safe-area-inset-left));
-    padding-right: max(1.25rem, env(safe-area-inset-right));
+    padding-left: max(1.5rem, env(safe-area-inset-left));
+    padding-right: max(1.5rem, env(safe-area-inset-right));
   }
 
   .site-nav {
@@ -790,11 +790,11 @@ body.theme-dark .consent-note {
 
 @media (max-width: 380px) {
   .page-shell {
-    padding-left: max(1rem, env(safe-area-inset-left));
-    padding-right: max(1rem, env(safe-area-inset-right));
+    padding-left: max(1.35rem, env(safe-area-inset-left));
+    padding-right: max(1.35rem, env(safe-area-inset-right));
   }
 
   .hero h1 {
-    font-size: 1.78rem;
+    font-size: 1.62rem;
   }
 }

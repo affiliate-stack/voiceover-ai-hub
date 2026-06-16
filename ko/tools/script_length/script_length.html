@@ -160,7 +160,8 @@
       width: 100%;
       max-width: 1280px;
       margin: 0 auto;
-      padding: 0 clamp(1.25rem, 4vw, 3rem);
+      padding: 0 clamp(1.5rem, 4vw, 3rem);
+      min-width: 0;
     }
 
     .site-header {
@@ -663,17 +664,21 @@
     .badge {
       display: inline-flex;
       align-items: center;
+      flex-wrap: wrap;
       gap: 6px;
       font-size: 0.7rem;
+      max-width: 100%;
       padding: 4px 9px;
       border-radius: 999px;
       background: rgba(15, 23, 42, 0.86);
       border: 1px solid rgba(56, 189, 248, 0.6);
       box-shadow: 0 0 18px rgba(56, 189, 248, 0.45);
-      white-space: nowrap;
+      white-space: normal;
+      overflow-wrap: anywhere;
     }
 
     .badge-dot {
+      flex: 0 0 auto;
       width: 6px;
       height: 6px;
       border-radius: 999px;
@@ -709,6 +714,7 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 10px;
+      min-width: 0;
     }
 
     .card-title {
@@ -903,12 +909,19 @@
     }
 
     @media (max-width: 480px) {
+      .tool-hero h1 {
+        font-size: 1.82rem;
+      }
       .stats-grid {
         grid-template-columns: minmax(0, 1fr);
       }
     }
 
     @media (max-width: 640px) {
+      .page-shell {
+        padding-left: max(1.5rem, env(safe-area-inset-left));
+        padding-right: max(1.5rem, env(safe-area-inset-right));
+      }
       .app {
         padding: 16px;
         border-radius: 18px;
