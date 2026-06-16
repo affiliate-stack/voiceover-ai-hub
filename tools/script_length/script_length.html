@@ -178,6 +178,7 @@
       gap: 0.65rem;
       flex-wrap: wrap;
       padding: 0.75rem 0;
+      min-width: 0;
     }
 
     .brand {
@@ -189,6 +190,13 @@
       letter-spacing: -0.02em;
       text-decoration: none;
       min-width: 0;
+      max-width: 100%;
+      overflow-wrap: anywhere;
+    }
+
+    .brand span {
+      min-width: 0;
+      overflow-wrap: anywhere;
     }
 
     .brand img {
@@ -206,6 +214,8 @@
       align-items: center;
       flex-wrap: wrap;
       margin-left: auto;
+      min-width: 0;
+      max-width: 100%;
     }
 
     .site-nav a {
@@ -608,6 +618,8 @@
       display: flex;
       flex-direction: column;
       gap: 4px;
+      min-width: 0;
+      max-width: 100%;
     }
 
     .title {
@@ -616,7 +628,10 @@
       font-weight: 650;
       display: inline-flex;
       align-items: center;
+      flex-wrap: wrap;
       gap: 8px;
+      max-width: 100%;
+      overflow-wrap: anywhere;
     }
 
     .title span.logo-dot {
@@ -630,12 +645,15 @@
     .subtitle {
       font-size: 0.83rem;
       color: var(--muted);
+      overflow-wrap: anywhere;
     }
 
     .chip-row {
       display: inline-flex;
       align-items: center;
+      flex-wrap: wrap;
       gap: 8px;
+      max-width: 100%;
       background: rgba(15, 23, 42, 0.7);
       padding: 4px 10px;
       border-radius: 999px;
@@ -643,6 +661,7 @@
       box-shadow: var(--shadow-chip);
       font-size: 0.72rem;
       color: #e5e7eb;
+      overflow-wrap: anywhere;
     }
 
     body.theme-light .chip-row {
@@ -785,8 +804,8 @@
     }
 
     .field {
-      flex: 1;
-      min-width: 120px;
+      flex: 1 1 min(120px, 100%);
+      min-width: 0;
     }
 
     .label {
@@ -800,6 +819,8 @@
 
     select {
       width: 100%;
+      min-width: 0;
+      max-width: 100%;
       padding: 7px 9px;
       border-radius: 999px;
       border: 1px solid rgba(55, 65, 81, 1);
@@ -1262,13 +1283,21 @@
     .toggle {
       display: inline-flex;
       align-items: center;
+      flex-wrap: wrap;
       gap: 8px;
+      max-width: 100%;
       font-size: 0.8rem;
       color: var(--text);
       padding: 8px 10px;
       border-radius: var(--radius-sm);
       border: 1px solid rgba(55, 65, 81, 1);
       background: rgba(15, 23, 42, 0.75);
+      overflow-wrap: anywhere;
+    }
+
+    .toggle span {
+      min-width: 0;
+      overflow-wrap: anywhere;
     }
 
     body.theme-light .toggle {
@@ -1298,10 +1327,9 @@
       </a>
       <nav class="site-nav">
         <a href="/">Home</a>
-        <a href="#calculator">Calculator</a>
-        <a href="#guide">Guide</a>
+        <a href="#calculator">Script timer</a>
         <a href="/tools/character_cost/character_cost.html">Cost tool</a>
-        <a href="/privacy.html">Privacy</a>
+        <a href="#guide">Guide</a>
       </nav>
       <button type="button" class="theme-toggle" id="themeToggle" aria-pressed="false" aria-label="Light theme" title="Light theme">☀️</button>
       <a class="lang-link" href="/ko/tools/script_length/script_length.html" hreflang="ko">한국어</a>
@@ -1320,8 +1348,7 @@
         </p>
         <div class="hero-actions">
           <a class="hero-btn primary" href="#calculator">Jump to calculator</a>
-          <a class="hero-btn secondary" href="/tools/character_cost/character_cost.html">Estimate credits</a>
-          <a class="hero-btn secondary" href="/">Back to main guide</a>
+          <a class="hero-btn secondary" href="/tools/character_cost/character_cost.html">Cost tool</a>
           <a class="hero-btn secondary" href="https://try.elevenlabs.io/5cfx02tsbxm9" target="_blank" rel="noopener noreferrer sponsored">Try ElevenLabs</a>
         </div>
       </div>
