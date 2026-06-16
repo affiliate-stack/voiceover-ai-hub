@@ -56,6 +56,16 @@
       margin-top: 2.25rem;
       margin-bottom: .35rem;
     }
+    h1,
+    h2,
+    h3,
+    p,
+    li,
+    ul,
+    .card {
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
     .utility-row {
       display: flex;
       justify-content: flex-end;
@@ -95,6 +105,8 @@
       border-radius: 1rem;
       padding: 1.25rem 1.35rem;
       margin-top: 1rem;
+      min-width: 0;
+      max-width: 100%;
     }
     ul {
       margin-top: .5rem;
@@ -129,10 +141,12 @@
     .consent-banner {
       position: fixed;
       bottom: 1rem;
-      right: 1rem;
-      left: 1rem;
+      right: auto;
+      left: 50%;
+      width: min(420px, calc(100vw - 2rem));
       max-width: 420px;
       margin: 0 auto;
+      transform: translateX(-50%);
       background: rgba(15, 23, 42, 0.92);
       border: 1px solid rgba(148, 163, 184, 0.2);
       border-radius: 1rem;
@@ -142,6 +156,7 @@
       line-height: 1.4;
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
       z-index: 100;
+      max-width: calc(100vw - 2rem);
     }
     .consent-actions {
       margin-top: .85rem;
@@ -185,7 +200,8 @@
       font-size: .8rem;
       cursor: pointer;
     }
-    .btn-secondary {
+    .btn-secondary,
+    .btn-outline {
       background: rgba(15, 23, 42, 0.3);
       border: 1px solid rgba(99, 102, 241, 0.35);
       border-radius: 9999px;
@@ -219,7 +235,8 @@
       border-top: 1px solid #d6deea;
       color: #475569;
     }
-    body.theme-light .btn-secondary {
+    body.theme-light .btn-secondary,
+    body.theme-light .btn-outline {
       background: #f1f5f9;
       border: 1px solid #cbd5e1;
       color: #0f172a;
@@ -247,6 +264,7 @@
       box-shadow: 0 8px 18px rgba(14, 165, 233, 0.2);
     }
     body.theme-light .btn-secondary,
+    body.theme-light .btn-outline,
     body.theme-light .btn-ghost {
       background: #f8fafc;
     }
@@ -259,6 +277,23 @@
       color: #0ea5e9;
       border-color: #0ea5e9;
       box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.35);
+    }
+    @media (max-width: 540px) {
+      main {
+        padding: clamp(1.25rem, 5vw, 1.5rem);
+      }
+      .card {
+        padding: 1rem;
+      }
+      ul {
+        padding-left: 1rem;
+      }
+      .consent-banner {
+        left: 50%;
+        right: auto;
+        width: calc(100vw - 1.5rem);
+        max-width: calc(100vw - 1.5rem);
+      }
     }
   </style>
 </head>
@@ -372,7 +407,7 @@
     <div class="consent-actions">
       <button class="btn-primary" type="button" data-consent-accept>Allow analytics</button>
       <button class="btn-ghost" type="button" data-consent-reject>Reject all</button>
-      <button class="btn-secondary" type="button" data-consent-save>Save choices</button>
+      <button class="btn-outline" type="button" data-consent-save>Save choices</button>
     </div>
   </div>
 

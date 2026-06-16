@@ -286,6 +286,14 @@
       margin-left: 0;
       min-height: 42px;
     }
+    h1,
+    h2,
+    h3,
+    p,
+    li {
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
     .btn-outline {
       background: rgba(15, 23, 42, 0.25);
       border: 1px solid rgba(148, 163, 184, 0.35);
@@ -300,6 +308,8 @@
       border: 1px solid rgba(148, 163, 184, 0.085);
       border-radius: 1rem;
       padding: 1.2rem;
+      min-width: 0;
+      overflow-wrap: anywhere;
     }
     .tool-box {
       background: rgba(15, 23, 42, 0.35);
@@ -307,6 +317,8 @@
       padding: .75rem .8rem 1rem .8rem;
       border-radius: .75rem;
       margin-bottom: .5rem;
+      min-width: 0;
+      overflow-wrap: anywhere;
     }
     .tool-box .btn-primary,
     .tool-box .btn-secondary {
@@ -324,12 +336,18 @@
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1.25rem;
+      min-width: 0;
+    }
+    .grid-3 > * {
+      min-width: 0;
     }
     .card {
       background: rgba(15, 23, 42, 0.25);
       border: 1px solid rgba(148, 163, 184, 0.08);
       border-radius: 1rem;
       padding: 1rem;
+      min-width: 0;
+      overflow-wrap: anywhere;
     }
     .muted {
       color: var(--muted);
@@ -520,10 +538,12 @@
     .consent-banner {
       position: fixed;
       bottom: 1rem;
-      right: 1rem;
-      left: 1rem;
+      right: auto;
+      left: 50%;
+      width: min(420px, calc(100vw - 2rem));
       max-width: 420px;
       margin: 0 auto;
+      transform: translateX(-50%);
       background: rgba(15, 23, 42, 0.92);
       border: 1px solid rgba(148, 163, 184, 0.2);
       border-radius: 1rem;
@@ -533,7 +553,7 @@
       line-height: 1.4;
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
       z-index: 100;
-      max-width: min(420px, calc(100vw - 1.5rem));
+      max-width: calc(100vw - 2rem);
     }
     .consent-copy {
       margin-top: .35rem;
@@ -646,8 +666,10 @@
         margin-left: 0;
       }
       .consent-banner {
-        left: .75rem;
-        right: .75rem;
+        left: 50%;
+        right: auto;
+        width: calc(100vw - 1.5rem);
+        max-width: calc(100vw - 1.5rem);
       }
     }
   </style>
