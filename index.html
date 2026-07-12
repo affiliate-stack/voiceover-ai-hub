@@ -61,7 +61,7 @@
         "name": "Can I change the voice style?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "You can choose from multiple voices, languages, and tweak tone or stability controls depending on the ElevenLabs plan."
+          "text": "Available voices and controls vary by feature and plan. Preview a short sample before making a longer recording."
         }
       },
       {
@@ -391,12 +391,18 @@
       position: absolute;
       left: 0;
       top: 0;
-      font-size: .72rem;
-      letter-spacing: .05em;
+      width: 2rem;
+      min-height: 1.8rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .78rem;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: 0;
       background: rgba(99, 102, 241, 0.2);
       border: 1px solid rgba(99, 102, 241, 0.6);
       border-radius: 9999px;
-      padding: .15rem .5rem;
       color: #e0e7ff;
     }
     .keywords {
@@ -485,6 +491,11 @@
       color: #0f172a;
       background: #eef2ff;
       border: 1px solid #cbd5e1;
+    }
+    body.theme-light .checklist li::before {
+      background: #e0e7ff;
+      border-color: #4f46e5;
+      color: #312e81;
     }
     body.theme-light .disclaimer {
       background: #f8fafc;
@@ -724,8 +735,8 @@
       <div class="hero-card" id="elevenlabs">
         <h2>ElevenLabs at a glance</h2>
         <div class="tool-box">
-          <p style="margin:0 0 .5rem 0;"><strong>What it does:</strong> converts text into very realistic voice in many languages.</p>
-          <p class="muted" style="margin:0 0 .65rem 0;font-size:.75rem;">Good for lessons, social media videos, product demos, voice messages.</p>
+          <p style="margin:0 0 .5rem 0;"><strong>What it does:</strong> turns text into realistic-sounding speech in many languages.</p>
+          <p class="muted" style="margin:0 0 .65rem 0;font-size:.75rem;">Useful for lessons, social-media videos, product demos, and voice messages.</p>
           <a href="https://try.elevenlabs.io/5cfx02tsbxm9" class="btn-primary" style="width:max-content;" target="_blank" rel="noopener noreferrer sponsored">
             Go to ElevenLabs
           </a>
@@ -744,15 +755,15 @@
       <div class="grid-3">
         <div class="card">
           <h3>Voice realism</h3>
-          <p class="muted">Stability and “clarity” sliders help you dial in conversational or announcer-style delivery, which is key for trust-building content.</p>
+          <p class="muted">Voice settings can help you tailor delivery for conversational narration or a more formal announcement.</p>
         </div>
         <div class="card">
           <h3>Workflow control</h3>
-          <p class="muted">Pause, resume, and regenerate sections within the script so you can iterate lines without redoing the entire voiceover.</p>
+          <p class="muted">Edit your text and regenerate individual lines so you can refine a voiceover without starting again from scratch.</p>
         </div>
         <div class="card">
           <h3>Flexible outputs</h3>
-          <p class="muted">Download MP3 or WAV, connect to the API, or embed audio players on landing pages without extra tools.</p>
+          <p class="muted">Depending on the feature and plan, you can download audio, connect through an API, or embed a player on a landing page.</p>
         </div>
       </div>
       <div class="card keywords-card" style="margin-top:1.25rem;" aria-hidden="true">
@@ -800,19 +811,19 @@
     </div>
 
     <div class="container section" id="more">
-      <h2>Why choose ElevenLabs vs other AI voice generators?</h2>
+      <h2>What to consider when comparing AI voice generators</h2>
       <div class="grid-3">
         <div class="card">
           <h3>Realistic sound</h3>
-          <p class="muted">Voices sound more natural than basic TTS tools.</p>
+          <p class="muted">Listen to a short test in your target language and decide whether the delivery suits your project.</p>
         </div>
         <div class="card">
           <h3>Many languages</h3>
-          <p class="muted">Useful if your audience is not all in the same language.</p>
+          <p class="muted">Check that the languages and accents you need are supported for your chosen workflow.</p>
         </div>
         <div class="card">
           <h3>Fast to learn</h3>
-          <p class="muted">You paste text, pick a voice, download the audio.</p>
+          <p class="muted">A simple first test is: paste text, choose a voice, preview the result, then export it if it works for you.</p>
         </div>
       </div>
     </div>
@@ -821,11 +832,11 @@
       <h2>How to get started with ElevenLabs in 3 steps</h2>
       <p class="muted">Follow this quick workflow to publish your first audio clip without getting lost in the interface.</p>
       <ol class="checklist">
-        <li>Create an ElevenLabs account, choose a Starter or Creator plan, and verify the email so downloads are enabled.</li>
-        <li>Paste a short script, select a language, then pick a voice preset or clone your own for brand consistency.</li>
-        <li>Adjust stability/clarity, preview the result, and download MP3/WAV for YouTube, LMS, IVR, or podcast editors.</li>
+        <li>Create an ElevenLabs account, verify your email, and choose a plan that fits your expected usage.</li>
+        <li>Paste a short script, select a language, then choose a voice. Only clone a voice that you own or have permission to use.</li>
+        <li>Adjust the available voice settings, preview the result, and export a supported audio format for your editor or publishing workflow.</li>
       </ol>
-      <p class="muted" style="margin-top:1rem;">Tip: keep paragraphs under 500 characters. Shorter chunks render faster and are easier to tweak for SEO or ad scripts.</p>
+      <p class="muted" style="margin-top:1rem;">Tip: start with short paragraphs. They are easier to review, test, and revise before you generate a longer recording.</p>
     </div>
 
     <div class="container section" id="faq">
@@ -839,7 +850,7 @@
       <div class="card" style="margin-bottom:.75rem;">
         <h3 style="margin-bottom:.25rem;">Can I change the voice style?</h3>
         <p class="muted" style="font-size:.78rem;">
-          You can pick from different voices and adjust settings like language and sometimes tone, depending on the plan.
+          Available voices and controls vary by feature and plan. Preview a short sample before making a longer recording.
         </p>
       </div>
       <div class="card">
@@ -851,7 +862,7 @@
 
       <div class="disclaimer" id="disclosure">
         <strong>Disclosure and brand note</strong><br />
-        This page links to ElevenLabs via: <code>https://try.elevenlabs.io/5cfx02tsbxm9</code>. Trademarks and product names are property of their respective owners.
+        This page contains an affiliate link to ElevenLabs: <code>https://try.elevenlabs.io/5cfx02tsbxm9</code>. We may earn a commission if you use it, at no extra cost to you. Trademarks and product names belong to their respective owners.
       </div>
     </div>
   </main>
