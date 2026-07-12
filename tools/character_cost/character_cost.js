@@ -1,6 +1,9 @@
 'use strict';
 
 (function () {
+  // Public plan allowances and 0.5/1-credit text-to-speech assumptions were
+  // reviewed against elevenlabs.io/pricing on 2026-07-12. Keep user overrides
+  // because model, product, and contract rules can differ.
   const PLAN_TIERS = [
     { id: 'free', name: 'Free', credits: 10000 },
     { id: 'starter', name: 'Starter', credits: 30000 },

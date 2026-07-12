@@ -1407,6 +1407,18 @@
                     <option value="fast">빠름</option>
                   </select>
                 </div>
+                <div class="field">
+                  <label for="targetSlot" class="label">목표 길이</label>
+                  <select id="targetSlot" aria-describedby="targetSlotHint">
+                    <option value="15">15초</option>
+                    <option value="30">30초</option>
+                    <option value="45">45초</option>
+                    <option value="60" selected>60초</option>
+                    <option value="90">90초</option>
+                    <option value="0">목표 선택 안 함</option>
+                  </select>
+                  <span class="helper-note" id="targetSlotHint">이 슬롯에 맞는 안전한 단어 수를 보여 줍니다.</span>
+                </div>
               </div>
 
               <div class="field-group">
@@ -1481,6 +1493,14 @@
                 </div>
               </div>
 
+              <div class="stat">
+                <div class="stat-label">목표 길이 예산</div>
+                <div class="stat-value accent" id="targetBudget">0단어</div>
+                <div class="stat-hint" id="targetDetail">
+                  목표 길이를 선택하면 안전한 단어 수를 확인할 수 있습니다.
+                </div>
+              </div>
+
               <div class="slot-panel">
                 <div class="slot-title">광고 슬롯 가이드</div>
                 <div class="slot-row">
@@ -1512,7 +1532,7 @@
               </p>
 
               <p class="note">
-                <strong>참고:</strong> 이 계산기는 언어·속도별 고정 WPM으로 자동 추정한 시간입니다.
+                <strong>참고:</strong> 이 계산기는 언어·속도별 고정 WPM으로 자동 추정한 시간입니다. 타이밍 가정은 2026년 7월 12일에 검토했으며, 실제 녹음 시간은 달라질 수 있습니다.
               </p>
               <p class="alert" id="longAlert" style="display:none;">
                 예상 시간이 90초를 초과합니다. 15–90초 슬롯에 맞지 않을 수 있습니다.
@@ -1663,12 +1683,15 @@
   const scriptInput = document.getElementById("scriptInput");
   const languageSelect = document.getElementById("language");
   const paceSelect = document.getElementById("pace");
+  const targetSlotSelect = document.getElementById("targetSlot");
   const countNumbersToggle = document.getElementById("countNumbers");
   const wordCountEl = document.getElementById("wordCount");
   const charCountEl = document.getElementById("charCount");
   const durationEl = document.getElementById("duration");
   const durationDetailEl = document.getElementById("durationDetail");
   const wpmValueEl = document.getElementById("wpmValue");
+  const targetBudgetEl = document.getElementById("targetBudget");
+  const targetDetailEl = document.getElementById("targetDetail");
   const longAlertEl = document.getElementById("longAlert");
   const clearButton = document.getElementById("clearButton");
   const sampleButton = document.getElementById("sampleButton");
@@ -1687,6 +1710,7 @@
   let currentBestSlot = null;
   let currentBufferSlot = null;
   let currentBufferedSeconds = 0;
+  let currentTargetBudget = null;
 
   function applyTheme(theme) {
     const isLight = theme === "light";
@@ -1877,6 +1901,36 @@
     return bufferSlot;
   }
 
+  function updateTargetBudget(words, wpm) {
+    const targetSeconds = parseInt(targetSlotSelect.value, 10);
+
+    if (!targetSeconds) {
+      targetBudgetEl.textContent = "목표 선택 안 함";
+      targetDetailEl.textContent = "15초, 30초, 45초, 60초 또는 90초를 선택하면 안전한 단어 수를 보여 줍니다.";
+      currentTargetBudget = null;
+      return;
+    }
+
+    const budget = Math.floor((targetSeconds * wpm) / 60 / BUFFER_MULTIPLIER);
+    currentTargetBudget = { seconds: targetSeconds, words: budget };
+    targetBudgetEl.textContent = "약 " + budget + "단어";
+
+    if (words === 0) {
+      targetDetailEl.textContent =
+        targetSeconds + "초, " + wpm + " WPM, " + BUFFER_LABEL + "% 안전 버퍼를 포함한 기준입니다.";
+      return;
+    }
+
+    const difference = budget - words;
+    if (difference === 0) {
+      targetDetailEl.textContent = "현재 단어 수가 이 안전한 계획 기준과 같습니다.";
+    } else if (difference > 0) {
+      targetDetailEl.textContent = "버퍼를 포함해 " + targetSeconds + "초 안에 맞추려면 약 " + difference + "단어를 더 넣을 수 있습니다.";
+    } else {
+      targetDetailEl.textContent = "버퍼를 포함해 " + targetSeconds + "초 안에 맞추려면 약 " + Math.abs(difference) + "단어를 줄이세요.";
+    }
+  }
+
   function describeSlot(slotSeconds) {
     return slotSeconds ? slotSeconds + "초 슬롯" : "90초 초과";
   }
@@ -1900,6 +1954,7 @@
         script: scriptInput.value,
         language: languageSelect.value,
         pace: paceSelect.value,
+        targetSlot: targetSlotSelect.value,
         countNumbers: countNumbersToggle.checked
       };
       localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
@@ -1925,6 +1980,9 @@
       if (saved.pace && paceSelect.querySelector("option[value='" + saved.pace + "']")) {
         paceSelect.value = saved.pace;
       }
+      if (saved.targetSlot && targetSlotSelect.querySelector("option[value='" + saved.targetSlot + "']")) {
+        targetSlotSelect.value = saved.targetSlot;
+      }
       if (typeof saved.countNumbers === "boolean") {
         countNumbersToggle.checked = saved.countNumbers;
       }
@@ -1946,6 +2004,7 @@
     wordCountEl.textContent = words;
     charCountEl.textContent = chars + " / " + MAX_CHARS + "자";
     wpmValueEl.textContent = wpm;
+    updateTargetBudget(words, wpm);
 
     if (words === 0) {
       durationEl.textContent = "0초";
@@ -1979,6 +2038,9 @@
     const bufferSlot = currentBufferedSeconds
       ? describeSlot(currentBufferSlot) + " (" + currentBufferedSeconds + "초 버퍼)"
       : "계산되지 않음";
+    const targetBudget = currentTargetBudget
+      ? currentTargetBudget.seconds + "초에 " + currentTargetBudget.words + "단어(안전 버퍼 포함)"
+      : "선택 안 함";
 
     const payload =
       "스크립트 타이밍 요약:\n" +
@@ -1986,6 +2048,7 @@
       "- 예상 시간: " + duration + " (" + detail + ")\n" +
       "- 적용 WPM: " + wpm + "\n" +
       "- 가장 가까운 슬롯: " + bestSlot + "\n" +
+      "- 목표 길이 예산: " + targetBudget + "\n" +
       "- 안전 버퍼: " + bufferSlot;
 
     navigator.clipboard.writeText(payload).then(
@@ -2022,6 +2085,7 @@
   scriptInput.addEventListener("input", recalculate);
   languageSelect.addEventListener("change", recalculate);
   paceSelect.addEventListener("change", recalculate);
+  targetSlotSelect.addEventListener("change", recalculate);
   countNumbersToggle.addEventListener("change", recalculate);
 
   sampleButton.addEventListener("click", function () {
