@@ -1,5 +1,22 @@
 # Future tools roadmap
 
+## Current status — 12 July 2026
+
+Phase 1's first release is now live: the English and Korean Script Timers let visitors select a 15, 30, 45, 60, or 90-second target, see a buffer-aware word budget, and learn how many words to add or remove from their current draft. The ElevenLabs Credit Calculator source note was also rechecked and clarified.
+
+**Do not start another tool yet.** The next action is measurement, not development:
+
+1. Request indexing for the updated English and Korean Script Timer URLs in Google Search Console after deployment.
+2. On or after **9 August 2026** (28 days), record impressions, clicks, click-through rate, average position, landing-page queries, and any useful consented aggregate tool-use signal.
+3. On or after **10 October 2026** (90 days), compare those results with the pre-release baseline and decide whether the timer needs the remaining Phase 1 refinements or whether to build one Phase 3 tool.
+4. Keep sharing the Script Timer through relevant site navigation, helpful articles, and appropriate social/profile links. Do not use spammy link building or publish thin supporting pages.
+
+The decision after measurement is simple:
+
+- Queries about pronunciation, pauses, markup, or text-to-speech controls → build the **SSML Helper**.
+- Queries about ads, explainers, video scripts, hooks, or examples → build the **Script Template Generator**.
+- No meaningful search or usage signal yet → improve the Script Timer examples, copy, and internal linking before adding a new tool.
+
 ## Decision summary
 
 This is a static, bilingual GitHub Pages site centred on an independent ElevenLabs guide. It already has two useful browser-only tools in English and Korean:
@@ -53,8 +70,8 @@ Before any new phase begins, refresh the Search Console and PageSpeed exports; s
 | Phase | Outcome | Build only when | Effort |
 | --- | --- | --- | --- |
 | 0 | Tool quality baseline and measurement | Always—this is part of each release | Small |
-| 1 | Refine Script Timer | First priority; it already has search visibility | Small–medium |
-| 2 | Maintain and clarify ElevenLabs Credit Calculator | Pricing assumptions have been rechecked | Small |
+| 1 | Refine Script Timer | First target-duration release published 12 July 2026; measure before further changes | Small–medium |
+| 2 | Maintain and clarify ElevenLabs Credit Calculator | Source assumptions reviewed 12 July 2026; recheck before any future number change | Small |
 | 3 | One new static utility: SSML Helper **or** Script Template Generator | Phase 1 has been live long enough to collect data | Medium |
 | 4 | Curated AI voice-tools directory | There is capacity to maintain vendor facts quarterly | Medium–large |
 | 5 | Optional separate production-budget planner | Reliable sources and a defined audience exist | Medium–large |
@@ -212,6 +229,8 @@ Do this only after the static tools show demand and a separate technical/privacy
 - A privacy notice covering script text and audio, with a retention/deletion policy.
 - No client-side exposure of paid API keys.
 
-## Immediate next build
+## Immediate next action
 
-Refine the Script Timer with a selected target-duration budget and clearer pause/buffer handling. It is the smallest high-confidence improvement because it strengthens an existing, indexed page and adds a result the current tool does not yet provide: exactly how much a visitor needs to cut or add to fit their chosen slot.
+**Measure the published Script Timer release; do not build another tool before the 28-day review.**
+
+At the review, decide whether to make the remaining Phase 1 refinements (clearer pause/buffer explanation and practical 30/60/90-second examples) or to select exactly one Phase 3 tool using the query signals above. The 90-day review is the checkpoint for a larger decision, not a deadline to add features.
